@@ -1,0 +1,324 @@
+<div id="incBBestiary" class="sidebar-tab compendium" data-pack="{{metadata.package}}.{{metadata.name}}">
+	<div class="mainBlock">
+		<div class="bestiaryLeftPane IncarnateLeftPane">
+			<div class="compendium-search">
+				<input type="text" name="bestiarySearch" value placeholder ="Search" autocomplete="off"/>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroAlignment')">Alignment</h2>
+			<div class="bestiaryBroAlignment" style="display:none">
+				<p><input type="checkbox" value="lawful good" class="lawful good">lawful good</p>
+				<p><input type="checkbox" value="usually lawful good" class="usually lawful good">usually lawful good</p>
+				<p><input type="checkbox" value="lawful neutral" class="lawful neutral">lawful neutral</p>
+				<p><input type="checkbox" value="lawful evil" class="lawful evil">lawful evil</p>
+				<p><input type="checkbox" value="any lawful alignment" class="any lawful alignment">any lawful alignment</p>
+				<p><input type="checkbox" value="any non-lawful alignment" class="any non-lawful alignment">any non-lawful alignment</p>
+				<p><input type="checkbox" value="neutral good" class="neutral good">neutral good</p>
+				<p><input type="checkbox" value="neutral" class="neutral">neutral</p>
+				<p><input type="checkbox" value="neutral evil" class="neutral evil">neutral evil</p>
+				<p><input type="checkbox" value="chaotic good" class="chaotic good">chaotic good</p>
+				<p><input type="checkbox" value="chaotic neutral" class="chaotic neutral">chaotic neutral</p>
+				<p><input type="checkbox" value="chaotic evil" class="chaotic evil">chaotic evil</p>
+				<p><input type="checkbox" value="any chaotic alignment" class="any chaotic alignment">any chaotic alignment</p>
+				<p><input type="checkbox" value="any non-chaotic alignment" class="any non-chaotic alignment">any non-chaotic alignment</p>
+				<p><input type="checkbox" value="unaligned" class="unaligned">unaligned</p>
+				<p><input type="checkbox" value="any alignment" class="any alignment">any alignment</p>
+				<p><input type="checkbox" value="any good alignment" class="any good alignment">any good alignment</p>
+				<p><input type="checkbox" value="any non-good alignment" class="any non-good alignment">any non-good alignment</p>
+				<p><input type="checkbox" value="any evil alignment" class="any evil alignment">any evil alignment</p>
+				<p><input type="checkbox" value="any non-evil alignment" class="any non-evil alignment">any non-evil alignment</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroAttackSave')" style="display:block;">Attack Save</h2>
+			<div class="bestiaryBroAttackSave" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="strength" class="strength">strength</p>
+				<p><input type="checkbox" value="dexterity" class="dexterity">dexterity</p>
+				<p><input type="checkbox" value="constitution" class="constitution">constitution</p>
+				<p><input type="checkbox" value="intelligence" class="intelligence">intelligence</p>
+				<p><input type="checkbox" value="wisdom" class="wisdom">wisdom</p>
+				<p><input type="checkbox" value="charisma" class="charisma">charisma</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroAuthor')" style="display:block;">Author</h2>
+			<div class="bestiaryBroAuthor" style="display:none">
+				<p><input type="checkbox" value="ProNobis" class="ProNobis">ProNobis</p>
+				<p><input type="checkbox" value="SRD" class="SRD">SRD</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroLevel')">CR</h2>
+			<div class="bestiaryBroLevel" style="display:none">
+				<p><input type="checkbox" value="0" class="0">0 (0 xp)</p>
+				<!--	<p><input type="checkbox" value="0.0625">1/16 (10 xp)</p>-->
+				<p><input type="checkbox" value="0.125" class="0.125">1/8 (25 xp)</p>
+				<p><input type="checkbox" value="0.25" class="0.25">1/4 (50 xp)</p>
+				<p><input type="checkbox" value="0.5" class="0.5">1/2 (100 xp)</p>
+				<p><input type="checkbox" value="1" class="1">1 (200 xp)</p>
+				<p><input type="checkbox" value="2" class="2">2 (450 xp)</p>
+				<p><input type="checkbox" value="3" class="3">3 (700 xp)</p>
+				<p><input type="checkbox" value="4" class="4">4 (1,100 xp)</p>
+				<p><input type="checkbox" value="5" class="5">5 (1,800 xp)</p>
+				<p><input type="checkbox" value="6" class="6">6 (2,300 xp)</p>
+				<p><input type="checkbox" value="7" class="7">7 (2,900 xp)</p>
+				<p><input type="checkbox" value="8" class="8">8 (3,900 xp)</p>
+				<p><input type="checkbox" value="9" class="9">9 (5,000 xp)</p>
+				<p><input type="checkbox" value="10" class="10">10 (5,900 xp)</p>
+				<p><input type="checkbox" value="11" class="11">11 (7,200 xp)</p>
+				<p><input type="checkbox" value="12" class="12">12 (8,400 xp)</p>
+				<p><input type="checkbox" value="13" class="13">13 (10,000 xp)</p>
+				<p><input type="checkbox" value="14" class="14">14 (11,500 xp)</p>
+				<p><input type="checkbox" value="15" class="15">15 (13,000 xp)</p>
+				<p><input type="checkbox" value="16" class="16">16 (15,000 xp)</p>
+				<p><input type="checkbox" value="17" class="17">17 (18,000 xp)</p>
+				<p><input type="checkbox" value="18" class="18">18 (20,000 xp)</p>
+				<p><input type="checkbox" value="19" class="19">19 (22,000 xp)</p>
+				<p><input type="checkbox" value="20" class="20">20 (25,000 xp)</p>
+				<p><input type="checkbox" value="21" class="21">21 (33,000 xp)</p>
+				<p><input type="checkbox" value="22" class="22">22 (41,000 xp)</p>
+				<p><input type="checkbox" value="23" class="23">23 (50,000 xp)</p>
+				<p><input type="checkbox" value="24" class="24">24 (62,000 xp)</p>
+				<p><input type="checkbox" value="25" class="25">25 (75,000 xp)</p>
+				<p><input type="checkbox" value="26" class="26">26 (90,000 xp)</p>
+				<p><input type="checkbox" value="27" class="27">27 (105,000 xp)</p>
+				<p><input type="checkbox" value="28" class="28">28 (120,000 xp)</p>
+				<p><input type="checkbox" value="29" class="29">29 (135,000 xp)</p>
+				<p><input type="checkbox" value="30" class="30">30 (155,000 xp)</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroFunction')" style="display:block;">Function</h2>
+			<div class="bestiaryBroFunction" style="display:none">
+				<p><input type="checkbox" value="Boss" class="Boss">Boss</p>
+				<p><input type="checkbox" value="Creature" class="Creature">Creature</p>
+				<p><input type="checkbox" value="Healer" class="Healer">Healer</p>
+				<p><input type="checkbox" value="Minion" class="Minion">Minion</p>
+				<p><input type="checkbox" value="Spell" class="Spell">Spell</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroImmunity')" style="display:block;">Immunity (Damage)</h2>
+			<div class="bestiaryBroImmunity" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="acid" class="acid">acid</p>
+				<p><input type="checkbox" value="cold" class="cold">cold</p>
+				<p><input type="checkbox" value="fire" class="fire">fire</p>
+				<p><input type="checkbox" value="force" class="force">force</p>
+				<p><input type="checkbox" value="lightning" class="lightning">lightning</p>
+				<p><input type="checkbox" value="necrotic" class="necrotic">necrotic</p>
+				<p><input type="checkbox" value="poison" class="poison">poison</p>
+				<p><input type="checkbox" value="psychic" class="psychic">psychic</p>
+				<p><input type="checkbox" value="radiant" class="radiant">radiant</p>
+				<p><input type="checkbox" value="thunder" class="thunder">thunder</p>
+				<p><input type="checkbox" value="bludgeoning" class="bludgeoning">bludgeoning</p>
+				<p><input type="checkbox" value="piercing" class="piercing">piercing</p>
+				<p><input type="checkbox" value="slashing" class="slashing">slashing</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroConditionImmunity')" style="display:block;">Immunity (Condition)</h2>
+			<div class="bestiaryBroConditionImmunity" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="blinded" class="blinded">Blinded</p>
+				<p><input type="checkbox" value="charmed" class="charmed">Charmed</p>
+				<p><input type="checkbox" value="deafened" class="deafened">Deafened</p>
+				<p><input type="checkbox" value="diseased" class="diseased">Diseased</p>
+				<p><input type="checkbox" value="exhaustion" class="exhaustion">Exhaustion</p>
+				<p><input type="checkbox" value="frightened" class="frightened">Frightened</p>
+				<p><input type="checkbox" value="grappled" class="grappled">Grappled</p>
+				<p><input type="checkbox" value="paralyzed" class="paralyzed">Paralyzed</p>
+				<p><input type="checkbox" value="petrified" class="petrified">Petrified</p>
+				<p><input type="checkbox" value="poisoned" class="poisoned">Poisoned</p>
+				<p><input type="checkbox" value="prone" class="prone">Prone</p>
+				<p><input type="checkbox" value="restrained" class="restrained">Restrained</p>
+				<p><input type="checkbox" value="stunned" class="stunned">Stunned</p>
+				<p><input type="checkbox" value="unconscious" class="unconscious">Unconscious</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroPhysicalImmunity')" style="display:block;">Immunity (Physical Damage)</h2>
+			<div class="bestiaryBroPhysicalImmunity" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="non-magical weapons" class="non-magical weapons">non-magical weapons</p>
+				<p><input type="checkbox" value="non-magical weapons that are not adamantine" class="non-magical weapons that are not adamantine">non-magical weapons that are not adamantine</p>
+				<p><input type="checkbox" value="non-magical weapons that are not cold-forged iron" class="non-magical weapons that are not cold-forged iron">non-magical weapons that are not cold-forged iron</p>
+				<p><input type="checkbox" value="non-magical weapons that are not silvered" class="non-magical weapons that are not silvered">non-magical weapons that are not silvered</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroLore')" style="display:block;">Lore</h2>
+			<div class="bestiaryBroLore" style="display:none">
+				<p><input type="checkbox" value="Celtic" class="Celtic">Celtic</p>
+				<p><input type="checkbox" value="Fantasy" class="Fantasy">Fantasy</p>
+				<p><input type="checkbox" value="Greek" class="Greek">Greek</p>
+				<p><input type="checkbox" value="Hindu" class="Hindu">Hindu</p>
+				<p><input type="checkbox" value="Inuit" class="Inuit">Inuit</p>
+				<p><input type="checkbox" value="Libya" class="Libya">Libya</p>
+				<p><input type="checkbox" value="Norse" class="Norse">Norse</p>
+				<p><input type="checkbox" value="ProNobis" class="ProNobis">ProNobis</p>
+				<p><input type="checkbox" value="Real" class="Real">Real</p>
+				<p><input type="checkbox" value="Roman" class="Roman">Roman</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroOfficial')" style="display:block;">Official</h2>
+			<div class="bestiaryBroOfficial" style="display:none">
+				<p><input type="checkbox" value="true" class="true">Official</p>
+				<p><input type="checkbox" value="false" class="false">Not Official</p>
+				<!--<p><input type="checkbox" value="price modified" class="price modified">Price Modified</p>-->
+				<p><input type="checkbox" value="mechanically modified" class="mechanically modified">Mechanically Modified</p>
+				<p><input type="checkbox" value="description added" class="description added">Description Added</p>
+				<p><input type="checkbox" value="heavily edited" class="heavily edited">Heavily Edited</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroResistance')" style="display:block;">Resistance</h2>
+			<div class="bestiaryBroResistance" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="acid" class="acid">acid</p>
+				<p><input type="checkbox" value="cold" class="cold">cold</p>
+				<p><input type="checkbox" value="fire" class="fire">fire</p>
+				<p><input type="checkbox" value="force" class="force">force</p>
+				<p><input type="checkbox" value="lightning" class="lightning">lightning</p>
+				<p><input type="checkbox" value="necrotic" class="necrotic">necrotic</p>
+				<p><input type="checkbox" value="poison" class="poison">poison</p>
+				<p><input type="checkbox" value="psychic" class="psychic">psychic</p>
+				<p><input type="checkbox" value="radiant" class="radiant">radiant</p>
+				<p><input type="checkbox" value="thunder" class="thunder">thunder</p>
+				<p><input type="checkbox" value="bludgeoning" class="bludgeoning">bludgeoning</p>
+				<p><input type="checkbox" value="piercing" class="piercing">piercing</p>
+				<p><input type="checkbox" value="slashing" class="slashing">slashing</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroPhysicalResistance')" style="display:block;">Resistance (Physical Damage)</h2>
+			<div class="bestiaryBroPhysicalResistance" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="non-magical weapons" class="non-magical weapons">non-magical weapons</p>
+				<p><input type="checkbox" value="non-magical weapons that are not adamantine" class="non-magical weapons that are not adamantine">non-magical weapons that are not adamantine</p>
+				<p><input type="checkbox" value="non-magical weapons that are not cold-forged iron" class="non-magical weapons that are not cold-forged iron">non-magical weapons that are not cold-forged iron</p>
+				<p><input type="checkbox" value="non-magical weapons that are not silvered" class="non-magical weapons that are not silvered">non-magical weapons that are not silvered</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroSize')" style="display:block;">Size</h2>
+			<div class="bestiaryBroSize" style="display:none">
+				<p><input type="checkbox" value="tiny" class="tiny">Tiny</p>
+				<p><input type="checkbox" value="sm" class="sm">Small</p>
+				<p><input type="checkbox" value="med" class="med">Medium</p>
+				<p><input type="checkbox" value="lg" class="lg">Large</p>
+				<p><input type="checkbox" value="huge" class="huge">Huge</p>
+				<p><input type="checkbox" value="grg" class="grg">Gargantuan</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroTerrain')" style="display:block;">Terrain</h2>
+			<div class="bestiaryBroTerrain" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="Abandoned Ruin" class="Abandoned Ruin">Abandoned Ruin</p>
+				<p><input type="checkbox" value="Arctic" class="Arctic">Arctic</p>
+				<p><input type="checkbox" value="Cavern" class="Cavern">Cavern</p>
+				<p><input type="checkbox" value="Coastal" class="Coastal">Coastal</p>
+				<p><input type="checkbox" value="Desert" class="Desert">Desert</p>
+				<p><input type="checkbox" value="Forest" class="Forest">Forest</p>
+				<p><input type="checkbox" value="Grassland" class="Grassland">Grassland</p>
+				<p><input type="checkbox" value="Hill" class="Hill">Hill</p>
+				<p><input type="checkbox" value="Jungle" class="Jungle">Jungle</p>
+				<p><input type="checkbox" value="Mountain" class="Mountain">Mountain</p>
+				<p><input type="checkbox" value="Planes" class="Planes">Planes</p>
+				<p><input type="checkbox" value="Sewers" class="Sewers">Sewers</p>
+				<p><input type="checkbox" value="Sky" class="Sky">Sky</p>
+				<p><input type="checkbox" value="Swamp" class="Swamp">Swamp</p>
+				<p><input type="checkbox" value="Underwater" class="Underwater">Underwater</p>
+				<p><input type="checkbox" value="Urban" class="Urban">Urban</p>
+				<p><input type="checkbox" value="Volcanic" class="Volcanic">Volcanic</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroType')" style="display:block;">Type</h2>
+			<div class="bestiaryBroType" style="display:none">
+				<p><input type="checkbox" value="aberration" class="aberration">aberration</p>
+				<p><input type="checkbox" value="beast" class="beast">beast</p>
+				<p><input type="checkbox" value="celestial" class="celestial">celestial</p>
+				<p><input type="checkbox" value="construct" class="construct">construct</p>
+				<p><input type="checkbox" value="dragon" class="dragon">dragon</p>
+				<p><input type="checkbox" value="elemental" class="elemental">elemental</p>
+				<p><input type="checkbox" value="fey" class="fey">fey</p>
+				<p><input type="checkbox" value="fiend" class="fiend">fiend</p>
+				<p><input type="checkbox" value="giant" class="giant">giant</p>
+				<p><input type="checkbox" value="humanoid" class="humanoid">humanoid</p>
+				<p><input type="checkbox" value="monstrosity" class="monstrosity">monstrosity</p>
+				<p><input type="checkbox" value="ooze" class="ooze">ooze</p>
+				<p><input type="checkbox" value="plant" class="plant">plant</p>
+				<p><input type="checkbox" value="undead" class="undead">undead</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroSubtype')" style="display:block;">Subtype</h2>
+			<div class="bestiaryBroSubtype" style="display:none">
+				<p><input type="checkbox" value="50% neutral good or 50% neutral evil">50% neutral good or 50% neutral evil</p>
+				<p><input type="checkbox" value="acephali" class="acephali">acephali</p>
+				<p><input type="checkbox" value="any race" class="any race">any race</p>
+				<p><input type="checkbox" value="demon" class="demon">demon</p>
+				<p><input type="checkbox" value="devil" class="devil">devil</p>
+				<p><input type="checkbox" value="doppelganger" class="doppelganger">doppelganger</p>
+				<p><input type="checkbox" value="dwarf" class="dwarf">dwarf</p>
+				<p><input type="checkbox" value="elf" class="elf">elf</p>
+				<p><input type="checkbox" value="gnoll" class="gnoll">gnoll</p>
+				<p><input type="checkbox" value="gnome" class="gnome">gnome</p>
+				<p><input type="checkbox" value="goblinoid" class="goblinoid">goblinoid</p>
+				<p><input type="checkbox" value="grimlock" class="grimlock">grimlock</p>
+				<p><input type="checkbox" value="human" class="human">human</p>
+				<p><input type="checkbox" value="ijirait" class="ijirait">ijirait</p>
+				<p><input type="checkbox" value="kobold" class="kobold">kobold</p>
+				<p><input type="checkbox" value="lizardfolk" class="lizardfolk">lizardfolk</p>
+				<p><input type="checkbox" value="merfolk" class="merfolk">merfolk</p>
+				<p><input type="checkbox" value="orc" class="orc">orc</p>
+				<p><input type="checkbox" value="rakshasa" class="rakshasa">rakshasa</p>
+				<p><input type="checkbox" value="sahuagin" class="sahuagin">sahuagin</p>
+				<p><input type="checkbox" value="shapechanger" class="shapechanger">shapechanger</p>
+				<p><input type="checkbox" value="titan" class="titan">titan</p>
+				<p><input type="checkbox" value="tuniit" class="tuniit">tuniit</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('bestiaryBroVulnerability')" style="display:block;">Vulnerability</h2>
+			<div class="bestiaryBroVulnerability" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="acid" class="acid">acid</p>
+				<p><input type="checkbox" value="cold" class="cold">cold</p>
+				<p><input type="checkbox" value="fire" class="fire">fire</p>
+				<p><input type="checkbox" value="force" class="force">force</p>
+				<p><input type="checkbox" value="lightning" class="lightning">lightning</p>
+				<p><input type="checkbox" value="necrotic" class="necrotic">necrotic</p>
+				<p><input type="checkbox" value="poison" class="poison">poison</p>
+				<p><input type="checkbox" value="psychic" class="psychic">psychic</p>
+				<p><input type="checkbox" value="radiant" class="radiant">radiant</p>
+				<p><input type="checkbox" value="thunder" class="thunder">thunder</p>
+				<p><input type="checkbox" value="bludgeoning" class="bludgeoning">bludgeoning</p>
+				<p><input type="checkbox" value="piercing" class="piercing">piercing</p>
+				<p><input type="checkbox" value="slashing" class="slashing">slashing</p>
+			</div>
+		</div>
+		<div class="rightSide">
+			<div class="extra-nesting">
+				<nav class="tabs" data-group="group1">
+					<a class="item bestiaryTab" data-tab="tab1">Bestiary</a>
+					<a class="item randomEncounterTab" data-tab="tab2">Random Encounter</a>
+				</nav>
+				<ol id="incBestiaryList" class="incBestiaryList pack-content directory-list tab" data-tab="tab1" data-group="group1">
+					{{#each beasts as |beast id|}}
+					<li class="directory-item pack-entry item" data-entry-id="{{beast.data._id}}" data-xp="{{beast.data.data.details.xp.value}}" data-name="{{beast.name}}">
+						<img class="profile" src="{{beast.img}}" title="{{beast.name}}"/>
+						<h4 class="entry-name">
+							<a>{{beast.name}}</a>
+						</h4>
+						<div class="beast-tags">
+							<span class="bigSpace"/>
+							<span title="beast level">{{beast.data.data.details.cr.value}}</span>
+						</div>
+						<input type="hidden" class="beastiarCR" value="{{beast.data.data.details.cr.value}}">
+						<input type="hidden" class="bestiaryAttackSave" value="{{beast.data.flags.attackSaves}}">
+						<input type="hidden" class="bestiaryOfficial" value="{{beast.data.flags.official}}">
+						<input type="hidden" class="bestiaryAuthor" value="{{beast.data.flags.author}}">
+						<input type="hidden" class="bestiaryFunction" value="{{beast.data.flags.function}}">
+						<input type="hidden" class="bestiaryLore" value="{{beast.data.flags.lore}}">
+						<input type="hidden" class="bestiaryTerrain" value="{{beast.data.flags.terrain}}">
+						<input type="hidden" class="bestiaryVulnerability" value="{{beast.data.data.traits.dv.value}}">
+						<input type="hidden" class="bestiaryResistance" value="{{beast.data.data.traits.dr.value}}">
+						<input type="hidden" class="bestiaryCustomResistance" value="{{beast.data.data.traits.dr.custom}}">
+						<input type="hidden" class="bestiaryImmunity" value="{{beast.data.data.traits.di.value}}">
+						<input type="hidden" class="bestiaryCustomImmunity" value="{{beast.data.data.traits.di.custom}}">
+						<input type="hidden" class="bestiaryConditionImmunity" value="{{beast.data.data.traits.ci.value}}">
+						<input type="hidden" class="bestiaryType" value="{{beast.data.flags.npcType}}"/>
+						<input type="hidden" class="bestiarySubtype" value="{{beast.data.flags.npcSubtype}}{{beast.data.flags.npcSubtype2}}"/>
+						<input type="hidden" class="bestiaryAlignment" value="{{beast.data.data.details.alignment.value}}"/>
+						<input type="hidden" class="bestiarySize" value="{{beast.data.data.traits.size.value}}"/>
+					</li>
+					{{/each}}
+				</ol>
+				<div id="randomEncounterList" class="randomEncounterList tab" data-tab="tab2" data-group="group1">
+					<p><input class="min" type="number" value="0"></input><span>min XP</span><input class="max" type="number" value="0"></input><span>max XP</span></p>
+					<div class="buttonRow">
+						<input class="quantity" type="number" value="1"/>
+						<p>#</p>
+						<button class="incarnateRandomEncounter">Encounters</button>
+						<button class="incarnateRandomReset">Reset</button>
+					</div>
+					<div class="randomEncounterBeastList" style="display:none"></div>
+					<ol class="randomEncounters">
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

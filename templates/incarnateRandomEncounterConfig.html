@@ -1,0 +1,971 @@
+<form class="editable row">
+	<nav class="tabs column flex-static" data-group="randomEncounterConfig">
+		<a class="item flex" data-tab="attackSaves" title="Attack Saves"><i class="fas fa-exclamation-triangle"></i><span class="label">Attack Saves</span></a>
+		<a class="item flex" data-tab="author" title="Author"><i class="fas fa-trophy"></i><span class="label">Author</span></a>
+		<a class="item flex" data-tab="challengeRating" title="Challenge Rating"><i class="fas fa-fist-raised"></i><span class="label">Challenge Rating</span></a>
+		<a class="item flex" data-tab="conditionImmunities" title="Condition Immunities"><i class="fas fa-diagnoses"></i><span class="label">Condition Immunities</span></a>
+		<a class="item flex" data-tab="damageImmunities" title="Damage Immunities"><i class="fas fa-crown"></i><span class="label">Damage Immunities</span></a>
+		<a class="item flex" data-tab="damageResistances" title="Damage Resistances"><i class="fas fa-fire-extinguisher"></i><span class="label">Damage Resistances</span></a>
+		<a class="item flex" data-tab="damageVulnerabilities" title="Damage Vulnerabilities"><i class="fas fa-bug"></i><span class="label">Damage Vulnerabilities</span></a>
+		<a class="item flex" data-tab="function" title="Function"><i class="fas fa-theater-masks"></i><span class="label">Function</span></a>
+		<a class="item flex" data-tab="languages" title="Languages"><i class="fas fa-book"></i><span class="label">Languages</span></a>
+		<a class="item flex" data-tab="lore" title="Lore"><i class="fas fa-file"></i><span class="label">Lore</span></a>
+		<a class="item flex" data-tab="official" title="Official"><i class="fas fa-check"></i><span class="label">Official</span></a>
+		<a class="item flex" data-tab="size" title="Size"><i class="fas fa-mountain"></i><span class="label">Size</span></a>
+		<a class="item flex" data-tab="terrain" title="Terrain"><i class="fas fa-leaf"></i><span class="label">Terrain</span></a>
+		<a class="item flex" data-tab="type" title="Type"><i class="fas fa-flag"></i><span class="label">Type</span></a>
+		<a class="item flex" data-tab="settings" title="Settings"><i class="fas fa-cogs"></i><span class="label">Settings</span></a>
+	</nav>
+	<div class="contentPanes flex column">
+		<div class="section tab" data-tab="attackSaves" data-group="randomEncounterConfig" data-type="flags.attackSaves">
+			<div class="sectionHeading row">
+				<h3 class="flex">Attack Saves</h3>
+				<select class="andOr">
+					<option value="and">And</option>
+					<option value="or">Or</option>
+					<option value="xor">XOR</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="strength"/>
+					<label>Strength</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="dexterity"/>
+					<label>Dexterity</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="constitution"/>
+					<label>Constitution</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="intelligence"/>
+					<label>Intelligence</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="wisdom"/>
+					<label>Wisdom</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="charisma"/>
+					<label>Charisma</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="author" data-type="flags.author">
+			<div class="sectionHeading row">
+				<h3 class="flex">Author</h3>
+				<select class="andOr">
+					<option value="or">Or</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="ProNobis"/>
+					<label>ProNobis</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="SRD"/>
+					<label>SRD</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="challengeRating" data-type="data.details.cr.value">
+			<div class="sectionHeading row">
+				<h3 class="flex">Challenge Rating</h3>
+				<select class="andOr" data-strict="true">
+					<option value="or">Or</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="0"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 10}}/>
+					<label>0</label>
+					<span class="label">10 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="0.125"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 25}}/>
+					<label>1/8</label>
+					<span class="label">25 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="0.25"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 50}}/>
+					<label>1/4</label>
+					<span class="label">50 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="0.5"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 100}}/>
+					<label>1/2</label>
+					<span class="label">100 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="1"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 200}}/>
+					<label>1</label>
+					<span class="label">200 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="2"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 450}}/>
+					<label>2</label>
+					<span class="label">450 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="3"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 700}}/>
+					<label>3</label>
+					<span class="label">700 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="4"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 1100}}/>
+					<label>4</label>
+					<span class="label">1,100 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="5"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 1800}}/>
+					<label>5</label>
+					<span class="label">1,800 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="6"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 2300}}/>
+					<label>6</label>
+					<span class="label">2,300 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="7"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 2900}}/>
+					<label>7</label>
+					<span class="label">2,900 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="8"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 3900}}/>
+					<label>8</label>
+					<span class="label">3,900 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="9"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 5000}}/>
+					<label>9</label>
+					<span class="label">5,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="10"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 5900}}/>
+					<label>10</label>
+					<span class="label">5,900 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="11"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 7200}}/>
+					<label>11</label>
+					<span class="label">7,200 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="12"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 8400}}/>
+					<label>12</label>
+					<span class="label">8,400 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="13"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 10000}}/>
+					<label>13</label>
+					<span class="label">10,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="14"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 11500}}/>
+					<label>14</label>
+					<span class="label">11,500 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="15"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 13000}}/>
+					<label>15</label>
+					<span class="label">13,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="16"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 15000}}/>
+					<label>16</label>
+					<span class="label">15,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="17"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 18000}}/>
+					<label>17</label>
+					<span class="label">18,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="18"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 20000}}/>
+					<label>18</label>
+					<span class="label">20,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="19"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 22000}}/>
+					<label>19</label>
+					<span class="label">22,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="20"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 25000}}/>
+					<label>20</label>
+					<span class="label">25,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="21"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 33000}}/>
+					<label>21</label>
+					<span class="label">33,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="22"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 41000}}/>
+					<label>22</label>
+					<span class="label">41,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="23"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 50000}}/>
+					<label>23</label>
+					<span class="label">50,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="24"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 62000}}/>
+					<label>24</label>
+					<span class="label">62,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="25"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 75000}}/>
+					<label>25</label>
+					<span class="label">75,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="26"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 90000}}/>
+					<label>26</label>
+					<span class="label">90,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="27"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 105000}}/>
+					<label>27</label>
+					<span class="label">105,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="28"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 120000}}/>
+					<label>28</label>
+					<span class="label">120,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="29"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 155000}}/>
+					<label>29</label>
+					<span class="label">155,000 xp</span>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="30"{{incarnateXpBetween incRegions.minXP incRegions.maxXP 155000}}/>
+					<label>30</label>
+					<span class="label">155,000 xp</span>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="conditionImmunities" data-type="data.traits.ci.value">
+			<div class="sectionHeading row">
+				<h3 class="flex">Condition Immunities</h3>
+				<select class="andOr">
+					<option value="and">And</option>
+					<option value="or">Or</option>
+					<option value="xor">XOR</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="blinded"/>
+					<label>Blinded</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="charmed"/>
+					<label>Charmed</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="deafened"/>
+					<label>Deafened</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="frightened"/>
+					<label>Frightened</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="grappled"/>
+					<label>Grappled</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="incapacitated"/>
+					<label>Incapacitated</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="invisible"/>
+					<label>Invisible</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="paralyzed"/>
+					<label>Paralyzed</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="petrified"/>
+					<label>Petrified</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="poisoned"/>
+					<label>Poisoned</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="prone"/>
+					<label>Prone</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="restrained"/>
+					<label>Restrained</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="stunned"/>
+					<label>Stunned</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="unconscious"/>
+					<label>Unconscious</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="exhaustion"/>
+					<label>Exhaustion</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="diseased"/>
+					<label>Diseased</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="damageImmunities" data-type="data.traits.di.value">
+			<div class="sectionHeading row">
+				<h3 class="flex">Damage Immunities</h3>
+				<select class="andOr">
+					<option value="and">And</option>
+					<option value="or">Or</option>
+					<option value="xor">XOR</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="acid"/>
+					<label>Acid</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="bludgeoning"/>
+					<label>Bludgeoning</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="cold"/>
+					<label>Cold</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="fire"/>
+					<label>Fire</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="force"/>
+					<label>Force</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="lightning"/>
+					<label>Lightning</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="necrotic"/>
+					<label>Necrotic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="piercing"/>
+					<label>Piercing</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="poison"/>
+					<label>Poison</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="psychic"/>
+					<label>Psychic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="radiant"/>
+					<label>Radiant</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="slashing"/>
+					<label>Slashing</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="thunder"/>
+					<label>Thunder</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="damageResistances" data-type="data.traits.dr.value">
+			<div class="sectionHeading row">
+				<h3 class="flex">Damage Resistances</h3>
+				<select class="andOr">
+					<option value="and">And</option>
+					<option value="or">Or</option>
+					<option value="xor">XOR</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="acid"/>
+					<label>Acid</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="bludgeoning"/>
+					<label>Bludgeoning</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="cold"/>
+					<label>Cold</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="fire"/>
+					<label>Fire</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="force"/>
+					<label>Force</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="lightning"/>
+					<label>Lightning</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="necrotic"/>
+					<label>Necrotic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="piercing"/>
+					<label>Piercing</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="poison"/>
+					<label>Poison</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="psychic"/>
+					<label>Psychic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="radiant"/>
+					<label>Radiant</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="slashing"/>
+					<label>Slashing</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="thunder"/>
+					<label>Thunder</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="damageVulnerabilities" data-type="data.traits.dv.value">
+			<div class="sectionHeading row">
+				<h3 class="flex">Damage Vulnerabilities</h3>
+				<select class="andOr">
+					<option value="and">And</option>
+					<option value="or">Or</option>
+					<option value="xor">XOR</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="acid"/>
+					<label>Acid</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="bludgeoning"/>
+					<label>Bludgeoning</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="cold"/>
+					<label>Cold</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="fire"/>
+					<label>Fire</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="force"/>
+					<label>Force</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="lightning"/>
+					<label>Lightning</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="necrotic"/>
+					<label>Necrotic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="piercing"/>
+					<label>Piercing</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="poison"/>
+					<label>Poison</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="psychic"/>
+					<label>Psychic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="radiant"/>
+					<label>Radiant</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="slashing"/>
+					<label>Slashing</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="thunder"/>
+					<label>Thunder</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="function" data-type="flags.function">
+			<div class="sectionHeading row">
+				<h3 class="flex">Function</h3>
+				<select class="andOr">
+					<option value="or">Or</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Boss"/>
+					<label>Boss</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Creature" checked/>
+					<label>Creature</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Healer"/>
+					<label>Healer</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Minion"/>
+					<label>Minion</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Spell"/>
+					<label>Spell</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="languages" data-type="data.traits.languages.value">
+			<div class="sectionHeading row">
+				<h3 class="flex">Languages</h3>
+				<select class="andOr">
+					<option value="and">And</option>
+					<option value="or">Or</option>
+					<option value="xor">XOR</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="common"/>
+					<label>Common</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="aarakocra"/>
+					<label>Aarakocra</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="abyssal"/>
+					<label>Abyssal</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="aquan"/>
+					<label>Aquan</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="auran"/>
+					<label>Auran</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="celestial"/>
+					<label>Celestial</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="deep"/>
+					<label>Deep Speach</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="draconic"/>
+					<label>Draconic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="druidic"/>
+					<label>Druidic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="dwarvish"/>
+					<label>Dwarvish</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="elvish"/>
+					<label>Elvish</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="giant"/>
+					<label>Giant</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="gith"/>
+					<label>Gith</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="gnomish"/>
+					<label>Gnomish</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="goblin"/>
+					<label>Goblin</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="gnoll"/>
+					<label>Gnoll</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="halfling"/>
+					<label>Halfling</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="ignan"/>
+					<label>Ignan</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="infernal"/>
+					<label>Infernal</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="orc"/>
+					<label>Orc</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="primordial"/>
+					<label>Primordial</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="sylvan"/>
+					<label>Sylvan</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="terran"/>
+					<label>Terran</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="cant"/>
+					<label>Thieve's Cant</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="undercommon"/>
+					<label>Undercommon</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="lore" data-type="flags.lore">
+			<div class="sectionHeading row">
+				<h3 class="flex">Lore</h3>
+				<select class="andOr">
+					<option value="or">Or</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Celtic"/>
+					<label>Celtic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Fantasy"/>
+					<label>Fantasy</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Greek"/>
+					<label>Greek</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Hindu"/>
+					<label>Hindu</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Inuit"/>
+					<label>Inuit</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Libya"/>
+					<label>Libya</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Norse"/>
+					<label>Norse</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="ProNobis"/>
+					<label>ProNobis</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Real"/>
+					<label>Real</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Roman"/>
+					<label>Roman</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="official" data-type="flags.official">
+			<div class="sectionHeading row">
+				<h3 class="flex">Official</h3>
+				<select class="andOr">
+					<option value="or">Or</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="true"/>
+					<label>True</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="false"/>
+					<label>False</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="mechanically modified"/>
+					<label>Mechanically Modified</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="description Added"/>
+					<label>Description Added</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="heavily edited"/>
+					<label>Heavily Edited</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="size" data-type="data.traits.size.value">
+			<div class="sectionHeading row">
+				<h3 class="flex">Size</h3>
+				<select class="andOr">
+					<option value="or">Or</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="tiny"/>
+					<label>Tiny</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="sm"/>
+					<label>Small</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="med"/>
+					<label>Medium</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="lg"/>
+					<label>Large</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="huge"/>
+					<label>Huge</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="grg"/>
+					<label>Gargantuan</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="terrain" data-type="flags.terrain">
+			<div class="sectionHeading row">
+				<h3 class="flex">Terrain</h3>
+				<select class="andOr">
+					<option value="and">And</option>
+					<option value="or">Or</option>
+					<option value="xor">XOR</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Abandoned Ruin"/>
+					<label>Abandoned Ruin</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Arctic"/>
+					<label>Arctic</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Cavern"/>
+					<label>Cavern</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Coastal"/>
+					<label>Coastal</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Desert"/>
+					<label>Desert</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Forest"/>
+					<label>Forest</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Grassland"/>
+					<label>Grassland</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Hill"/>
+					<label>Hill</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Jungle"/>
+					<label>Jungle</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Mountain"/>
+					<label>Mountain</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Planes"/>
+					<label>Planes</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Sewers"/>
+					<label>Sewers</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Sky"/>
+					<label>Sky</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Swamp"/>
+					<label>Swamp</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Underwater"/>
+					<label>Underwater</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Urban"/>
+					<label>Urban</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="Volcanic"/>
+					<label>Volcanic</label>
+				</div>
+			</div>
+		</div>
+		<div class="section tab" data-group="randomEncounterConfig" data-tab="type" data-type="flags.npcType">
+			<div class="sectionHeading row">
+				<h3 class="flex">Type</h3>
+				<select class="andOr">
+					<option value="or">Or</option>
+					<option value="not">Not</option>
+				</select>
+			</div>
+			<div class="options row">
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="aberration"/>
+					<label>Aberration</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="beast"/>
+					<label>Beast</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="celestial"/>
+					<label>Celestial</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="construct"/>
+					<label>Construct</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="dragon"/>
+					<label>Dragon</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="elemental"/>
+					<label>Elemental</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="fey"/>
+					<label>Fey</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="fiend"/>
+					<label>Fiend</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="giant"/>
+					<label>Giant</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="humanoid"/>
+					<label>Humanoid</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="monstrosity"/>
+					<label>Monstrosity</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="ooze"/>
+					<label>Ooze</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="plant"/>
+					<label>Plant</label>
+				</div>
+				<div class="option flex-static column">
+					<input class="center" type="checkbox" value="undead"/>
+					<label>Undead</label>
+				</div>
+			</div>
+		</div>
+		<div class="settingsSection tab" data-group="randomEncounterConfig" data-tab="settings">
+			<div class="sectionHeading row">
+				<h3 class="flex">Settings</h3>
+			</div>
+			<div class="flex-auto encounterNameSection">
+				<input type="text" placeholder="Random Encounter Name" class="encounterName"/>
+			</div>
+			<div class="options row">
+				<div class="option flex column">
+					<input class="center minXP" type="number" data-type="minXP" value="{{incRegions.minXP}}"/>
+					<label>Minimum XP</label>
+				</div>
+				<div class="option flex column">
+					<input class="center maxXP" type="number" data-type="maxXP" value="{{incRegions.maxXP}}"/>
+					<label>Maximum XP</label>
+				</div>
+				<div class="option flex column">
+					<input class="center minNpc" type="number" data-type="minNpcs" value="1"/>
+					<label>Minimum # of NPCs</label>
+				</div>
+				<div class="option flex column">
+					<input class="center maxNpc" type="number" data-type="maxNpcs" value="10"/>
+					<label>Maximum # of NPCs</label>
+				</div>
+				<div class="option flex column">
+					<input class="center encounterWeight" type="number" data-type="weight" value="10"/>
+					<label>Weight</label>
+				</div>
+			</div>
+		</div>
+		<button type="button" class="createEncounterType">Add Encounter</button>
+		<div class="matchCheckResults"></div>
+	</div>
+</form>

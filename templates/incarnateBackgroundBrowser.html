@@ -1,0 +1,56 @@
+<div id="incBBackground" class="sidebar-tab compendium" data-pack="{{metadata.package}}.{{metadata.name}}">
+	<div class="mainBlock">
+		<div class="BackgroundLeftPane IncarnateLeftPane">
+			<div class="compendium-search">
+				<input type="text" name="backgroundSearch" value placeholder ="Search" autocomplete="off"/>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('backgroundBroOfficial')" style="display:block;">Official</h2>
+			<div class="backgroundBroOfficial" style="display:none">
+				<p><input type="checkbox" value="tru" class="tru">Official</p>
+				<p><input type="checkbox" value="fal" class="fal">Not Official</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('backgroundBroType')">Type</h2>
+			<div class="backgroundBroType" style="display:block">
+				<p><input type="checkbox" value="class" class="class">Background</p>
+				<p><input type="checkbox" value="feat" class="feat">Background Trait</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('backgroundBroLanguages')" style="display:block;">Languages</h2>
+			<div class="backgroundBroLanguages" style="display:none">
+				{{#each config.languages as |language id|}}
+				<p><input type="checkbox" value="{{id}}" class="{{id}}">{{language}}</p>
+				{{/each}}
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('backgroundBroSkills')" style="display:block;">Skills</h2>
+			<div class="backgroundBroSkills" style="display:none">
+				{{#each config.incarnateSkillList as |skill id|}}
+				<p><input type="checkbox" value="{{id}}" class="{{id}}">{{skill}}</p>
+				{{/each}}
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('backgroundBroTools')" style="display:block;">Tools</h2>
+			<div class="backgroundBroTools" style="display:none">
+				{{#each config.incarnateTools as |tool id|}}
+				<p><input type="checkbox" value="{{id}}" class="{{id}}">{{tool}}</p>
+				{{/each}}
+			</div>
+		</div>
+		<ol class="pack-content directory-list" id="incbackgroundList">
+			{{#each backgrounds as |background id|}}
+			<li class="directory-item pack-entry flexrow item" data-entry-id="{{background.data._id}}">
+				<img class="profile" src="{{background.data.img}}" title="{{background.data.name}}"/>
+				<h4 class="entry-name">
+					<a>{{background.name}}</a>
+				</h4>
+				<div class="background-tags">
+					<span class="bigSpace"/>
+					<span title="backgroundPrice">{{background.data.data.price.value}}</span>
+				</div>
+				<input type="hidden" class="backgroundOfficial" value="{{background.data.flags.incarnateWorldBuilding.all.official}}">
+				<input type="hidden" class="backgroundType" value="{{background.data.type}}">
+				<input type="hidden" class="backgroundLanguages" value="{{background.data.flags.incarnateFiveEMod.class.languages.value}}">
+				<input type="hidden" class="backgroundSkills" value="{{background.data.flags.incarnateFiveEMod.class.skills.choice.value}}">
+				<input type="hidden" class="backgroundTools" value="{{background.data.flags.incarnateFiveEMod.class.tools.value}}">
+			</li>
+			{{/each}}
+		</ol>
+	</div>
+</div>

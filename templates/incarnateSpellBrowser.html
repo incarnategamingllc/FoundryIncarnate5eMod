@@ -1,0 +1,149 @@
+<div id="incBSpells" class="sidebar-tab compendium" data-pack="{{metadata.package}}.{{metadata.name}}">
+	<div class="mainBlock">
+		<div class="IncarnateLeftPane">
+			<div class="compendium-search">
+				<input type="text" name="searchSpells" value placeholder ="Search" autocomplete="off"/>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('spellBroCaster')" style="display:block;">Caster</h2>
+			<div class="spellBroCaster" style="display:none">
+				<p><input type="checkbox" value="Bard" class="Bard">Bard</p>
+				<p><input type="checkbox" value="Cleric" class="Cleric">Cleric</p>
+				<p><input type="checkbox" value="Druid" class="Druid">Druid</p>
+				<p><input type="checkbox" value="Megalutero" class="Megalutero">Megalutero</p>
+				<p><input type="checkbox" value="Paladin" class="Paladin">Paladin</p>
+				<p><input type="checkbox" value="Ranger" class="Ranger">Ranger</p>
+				<p><input type="checkbox" value="Rune Blade" class="Rune Blade">Rune Blade</p>
+				<p><input type="checkbox" value="Runecrafter" class="Runecrafter">Runecrafter</p>
+				<p><input type="checkbox" value="Sorcerer" class="Sorcerer">Sorcerer</p>
+				<p><input type="checkbox" value="Warlock" class="Warlock">Warlock</p>
+				<p><input type="checkbox" value="Wizard" class="Wizard">Wizard</p>
+				<p><input type="checkbox" value="Archetype Only" class="Archetype Only">Archetype Only</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('spellBroCastingTime')" style="display:block;">Casting Time</h2>
+			<div class="spellBroCastingTime" style="display:none">
+				<p><input type="checkbox" value="1 bonus action" class="1 bonus action">1 bonus action</p>
+				<p><input type="checkbox" value="1 reaction" class="1 reaction">1 reaction</p>
+				<p><input type="checkbox" value="1 action" class="1 action">1 action</p>
+				<p><input type="checkbox" value="2 actions" class="2 actions">2 actions</p>
+				<p><input type="checkbox" value="1 minute" class="1 minute">1 minute</p>
+				<p><input type="checkbox" value="10 minutes" class="10 minutes">10 minutes</p>
+				<p><input type="checkbox" value="1 hour" class="1 hour">1 hour</p>
+				<p><input type="checkbox" value="8 hours" class="8 hours">8 hours</p>
+				<p><input type="checkbox" value="10 hours" class="10 hours">10 hours</p>
+				<p><input type="checkbox" value="12 hours" class="12 hours">12 hours</p>
+				<p><input type="checkbox" value="24 hours" class="24 hours">24 hours</p>
+				<p><input type="checkbox" value="1 year" class="1 year">1 year</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('spellBroComponent')" style="display:block;">Component</h2>
+			<div class="spellBroComponent" style="display:none">
+				<p><input type="checkbox" value="V" class="V">Visual</p>
+				<p><input type="checkbox" value="S" class="S">Somatic</p>
+				<p><input type="checkbox" value="M" class="M">Material</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('conBox')" style="display:block;">Concentration</h2>
+			<div class="conBox" style="display:none">
+				<p><input type="checkbox" value="true" class="true">True</p>
+				<p><input type="checkbox" value="false" class="false">False</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('spellBroDuration')" style="display:block;">Duration</h2>
+			<div class="spellBroDuration" style="display:none">
+				<p><input type="checkbox" value="Instantaneous" class="Instantaneous">Instantaneous</p>
+				<p><input type="checkbox" value="1 round" class="1 round">1 round</p>
+				<p><input type="checkbox" value="1 minute" class="1 minute">1 minute</p>
+				<p><input type="checkbox" value="Up to 1 minute" class="Up to 1 minute">Up to 1 minute</p>
+				<p><input type="checkbox" value="5 minutes" class="5 minutes">5 minutes</p>
+				<p><input type="checkbox" value="10 minutes" class="10 minutes">10 minutes</p>
+				<p><input type="checkbox" value="15 minutes" class="15 minutes">15 minutes</p>
+				<p><input type="checkbox" value="30 minutes" class="30 minutes">30 minutes</p>
+				<p><input type="checkbox" value="1 hour" class="1 hour">1 hour</p>
+				<p><input type="checkbox" value="Up to 1 hour" class="Up to 1 hour">Up to 1 hour</p>
+				<p><input type="checkbox" value="2 hours" class="2 hours">2 hours</p>
+				<p><input type="checkbox" value="3 hours" class="3 hours">3 hours</p>
+				<p><input type="checkbox" value="8 hours" class="8 hours">8 hours</p>
+				<p><input type="checkbox" value="Up to 8 hours" class="Up to 8 hours">Up to 8 hours</p>
+				<p><input type="checkbox" value="24 hours" class="24 hours">24 hours</p>
+				<p><input type="checkbox" value="1 day" class="1 day">1 day</p>
+				<p><input type="checkbox" value="3 days" class="3 days">3 days</p>
+				<p><input type="checkbox" value="7 days" class="7 days">7 days</p>
+				<p><input type="checkbox" value="10 days" class="10 days">10 days</p>
+				<p><input type="checkbox" value="30 days" class="30 days">30 days</p>
+				<p><input type="checkbox" value="1 year" class="1 year">1 year</p>
+				<p><input type="checkbox" value="Permanent" class="Permanent">Permanent</p>
+				<p><input type="checkbox" value="Special" class="Special">Special</p>
+				<p><input type="checkbox" value="Until dispelled" class="Until dispelled">Until dispelled</p>
+				<p><input type="checkbox" value="Until dispelled or triggered" class="Until dispelled or triggered">Until dispelled or triggered</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('spellBroLevel')">Level</h2>
+			<div class="spellBroLevel" style="display:none">
+				<p><input type="checkbox" value="0" class="0">Cantrip</p>
+				<p><input type="checkbox" value="1" class="1">1</p>
+				<p><input type="checkbox" value="2" class="2">2</p>
+				<p><input type="checkbox" value="3" class="3">3</p>
+				<p><input type="checkbox" value="4" class="4">4</p>
+				<p><input type="checkbox" value="5" class="5">5</p>
+				<p><input type="checkbox" value="6" class="6">6</p>
+				<p><input type="checkbox" value="7" class="7">7</p>
+				<p><input type="checkbox" value="8" class="8">8</p>
+				<p><input type="checkbox" value="9" class="9">9</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('spellBroOfficial')" style="display:block;">Official</h2>
+			<div class="spellBroOfficial" style="display:none">
+				<p><input type="checkbox" value="true" class="true">Official</p>
+				<p><input type="checkbox" value="false" class="false">Not Official</p>
+				<!--<p><input type="checkbox" value="price modified" class="price modified">Price Modified</p>-->
+				<p><input type="checkbox" value="mechanically modified" class="mechanically modified">Mechanically Modified</p>
+				<p><input type="checkbox" value="description added" class="description added">Description Added</p>
+				<p><input type="checkbox" value="heavily edited" class="heavily edited">Heavily Edited</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('ritBox')" style="display:block;">Ritual</h2>
+			<div class="ritBox" style="display:none">
+				<p><input type="checkbox" value="true" class="true">True</p>
+				<p><input type="checkbox" value="false" class="false">False</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('spellBroSchool')" style="display:block;">School</h2>
+			<div class="spellBroSchool" style="display:none">
+				<p><input type="checkbox" value="abj" class="abj">Abjuration</p>
+				<p><input type="checkbox" value="con" class="con">Conjuration</p>
+				<p><input type="checkbox" value="div" class="div">Divination</p>
+				<p><input type="checkbox" value="enc" class="enc">Enchantment</p>
+				<p><input type="checkbox" value="evo" class="evo">Evocation</p>
+				<p><input type="checkbox" value="ill" class="ill">Illusion</p>
+				<p><input type="checkbox" value="nec" class="nec">Necromancy</p>
+				<p><input type="checkbox" value="trs" class="trs">Transformation</p>
+			</div>
+			<!--<h2>Author</h2>-->
+		</div>
+		<div class="incarnateRightSide">
+			<h2 class="incarnateDragAll">Drag All</h2>
+			<ol class="pack-content directory-list" id="incSpellsList">
+				{{#each spells as |spell id|}}
+				<li class="directory-item pack-entry flexrow item" data-entry-id="{{spell.data._id}}">
+					<img class="profile" src="{{spell.img}}" title="{{spell.name}}"/>
+					<h4 class="entry-name">
+						<a>{{spell.name}}</a>
+					</h4>
+					<div class="spell-tags">
+						<span title="Spell level">{{#if spell.data.data.level.value}}{{spell.data.data.level.value}}{{else}}C{{/if}}</span>
+						<div class="bigSpace"/>
+						<span {{#unless spell.data.data.ritual.value}}style="color:#bbb;" title="not a Ritual"{{else}} title="Ritual"{{/unless}}>R</span>
+						<span {{#unless spell.data.data.concentration.value}}style="color:#bbb;" title="no Concentration Spell"{{else}} title="Concentration Spell"{{/unless}}>C</span>
+						<div class="smallSpace"/>
+						<span {{#unless spell.data.flags.components.V}}style="color:#bbb;" title="no Verbal Component"{{else}} title="Verbal Component"{{/unless}}>V</span>
+						<span {{#unless spell.data.flags.components.S}}style="color:#bbb;" title="no Somatic Component"{{else}} title="Somatic Component"{{/unless}}>S</span>
+						<span {{#unless spell.data.flags.components.M}}style="color:#bbb;" title="no Material Component"{{else}} title="Material Component"{{/unless}}>M</span>
+					</div>
+					<input type="hidden" class="components" value="{{spell.data.data.components.value}}">
+					<input type="hidden" class="official" value="{{spell.data.flags.official}}">
+					<input type="hidden" class="school" value="{{spell.data.data.school.value}}">
+					<input type="hidden" class="caster" value="{{spell.data.flags.source}}">
+					<input type="hidden" class="duration" value="{{spell.data.data.duration.value}}">
+					<input type="hidden" class="ritual" value="{{spell.data.data.ritual.value}}">
+					<input type="hidden" class="concentration" value="{{spell.data.data.concentration.value}}">
+					<input type="hidden" class="level" value="{{spell.data.data.level.value}}">
+					<input type="hidden" class="castingTime" value="{{spell.data.data.time.value}}"/>
+				</li>
+				{{/each}}
+			</ol>
+		</div>
+	</div>
+</div>

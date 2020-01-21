@@ -1,0 +1,155 @@
+<form class="editable">
+	<div class="incarnateActorSheet">
+		<div class="page1 column">
+			<div class="incHeader">
+				<span class="actorName"><input name="name" type="text" value="{{actor.name}}" placeholder="Character Name"/></span>
+				<div class="details">
+					<div class="flex row">
+					<ol class="flex classes">
+						{{#each actor.keyStatistics.classes.items}}
+						<li class="class" data-item-id="{{id}}" draggable="true"><span class="name">{{name}}</span> lvl <span class="level">{{data.levels.value}}</span></li>
+						{{/each}}
+					</ol>
+					<ol class="flex backgrounds">
+						{{#each actor.keyStatistics.backgrounds.items}}
+						<li class="background" data-item-id="{{id}}" draggable="true"><span class="name">{{name}}</span></li>
+						{{/each}}
+					</ol>
+					<span class="flex playerName"><input name="flags.playerName" type="text" value="{{actor.flags.playerName}}" placeholder="Player Name"/></span>
+					</div>
+					<div class="flex row">
+					<ol class="flex races">
+						{{#each actor.keyStatistics.races.items}}
+						<li class="race" data-item-id="{{id}}" draggable="true"><span class="name">{{name}}</span></li>
+						{{/each}}
+					</ol>
+					<span class="flex alignment"><input type="text" name="data.details.alignment.value" value="{{actor.data.details.alignment.value}}" placeholder="Alignment"/></span>
+					<span class="flex experience row"><input class="flex" type="number" name="data.details.xp.value" value="{{actor.data.details.xp.value}}"/><span class="next-level-xp flex">/{{actor.data.details.xp.max}}</span></span>
+					</div>
+				</div>
+			</div>
+			<div class="row page-columns flex">
+				<div class="incCol1 flex">
+					<div class="abilitiesSkills row">
+						<ol class="abilities flex">
+							{{#each actor.data.abilities as |ability id|}}
+							<li class="{{id}}">
+								<span class="abilitiy">{{incarnateCapitalize id}}</span>
+								<input type="number" name="data.abilities.{{id}}.value" value="{{ability.value}}" data-dtype="Number"/>
+								<span class="modifier">{{ability.mod}}</span>
+							</li>	
+							{{/each}}
+						</ol>
+						<ol class="skill-column-holder flex">
+							<div class="inspiration">
+								<input type="number" name="flags.inspiration" value="{{actor.flags.inspiration}}" data-dtype="Number"/>
+								<span class="inspiration-label">Inspiration</span>
+							</div>
+							<div class="proficiency-bonus">
+								<span class="proficiency-modifier">{{actor.data.attributes.prof.value}}</span>
+								<span class="proficiency-label">Proficiency</span>
+							</div>
+							<ol class="incarnate-saving-throws">
+								{{#each actor.data.abilities as |ability id|}}
+								<li class="ability row" data-ability="{{id}}">
+									<input type="hidden" name="data.abilities.{{id}}.proficient" value="{{ability.proficient}}" data-dtype="Number"/>
+									{{incarnateSaveProficiency ability.proficient}}
+									<span class="saving-modifier">{{ability.save}}</span>
+									<span class="ability-name flex">{{ability.label}}</span>
+								</li>
+								{{/each}}
+								<span class="saving-throws-label">Saving Throws</span>
+							</ol>
+							<div class="skills">
+								{{#each actor.data.skills as |skill id|}}
+								<div class="{{skill.label}}-skill-roll row" data-skill="{{id}}">
+									<input type="hidden" name="data.skills.{{id}}.value" value="{{skill.value}}" data-dtype="Number"/>
+									{{incarnateSkillProficiency skill.value}}
+									<span class="skill-modifier">{{skill.mod}}</span>
+									<span class="skill-name flex">{{skill.label}}</span>
+								</div>
+								{{/each}}
+								<span class="skills-label">Skills</span>
+							</div>
+						</ol>
+					</div>
+					<div class="passive-perception">
+		  				<input type="number" name="data.traits.perception.value" value="{{actor.data.traits.perception.value}}" data-dtype="Number"/>
+		  				<span class="label">{{actor.data.traits.perception.label}}</span>
+		  			</div>
+					<div class="languages">
+						{{#each actor.data.traits.languages.value as |language id|}}
+							{{incarnateLanguage language}}
+						{{/each}}
+						{{incarnateLanguage actor.data.traits.languages.custom}}
+					</div>
+					<div class="senses">
+						<span class="title">Senses<a class="sense-control sense-create" title="Create Sense" data-type="{{sid}}"><i class="fas fa-plus"></i> Add</a></span>
+		  				{{#each actor.flags.senses as |sense id|}}
+		  				<span class="sense" data-sense-id="{{id}}">
+		  					<input type="number" name="flags.senses.{{id}}.value" value="{{sense.value}}" data-dtype="Number"/>
+		  					<input type="text" name="flags.senses.{{id}}.label" value="{{sense.label}}"/>
+							<a class="sense-control sense-delete" title="Delete Sense"><i class="fas fa-trash"></i></a>
+		  				</span>
+		  				{{/each}}
+		  			</div>
+					<div class="otherProficiencies">
+					</div>
+				</div>
+				<div class="incCol2 flex">
+					<div class="statBlock column">
+						<div class="line1 flex row">
+							<span class="armorClass flex frame column">
+								<input class="flex" type="number" name="data.attributes.ac.value" value="{{actor.data.attributes.ac.value}}" data-dtype="Number"/>
+								<span class="armorClass-lebel flex">Armor Class</span>
+							</span>
+							<span class="initiative flex frame column">
+								<input class="flex" type="number" name="data.attributes.init.value" value="{{actor.data.attributes.init.value}}" data-dtype="Number"/>
+								<span class="initiative-label flex">Initiative</span>
+							</span>
+							<span class="speed flex frame column">
+								<input class="flex" type="text" name="data.attributes.speed.value" value="{{actor.data.attributes.speed.value}}"/>
+								<span class="speed-label flex">Speed</span>
+								<input class="flex" type="text" name="data.attributes.speed.special" value="{{actor.data.attributes.speed.special}}" placeholder="Special"/>
+							</span>
+						</div>
+						<div class="line2 flex column frame">
+							<div class="flex row">
+								<div class="flex column">
+									<div class="flex row">
+										<input class="current-hp flex" type="number" name="data.attributes.hp.value" value="{{actor.data.attributes.hp.value}}" data-dtype="Number"/>
+										<span class="flex-auto backslash">/</span>
+									</div>
+									<span class="currentHP flex">Current HP</span>
+								</div>
+								<div class="flex column">
+									<input class="max-hp flex" type="number" name="data.attributes.hp.max" value="{{actor.data.attributes.hp.max}}" data-dtype="Number"/>
+									<span class="maxHP flex">Max HP</span>
+								</div>
+							</div>
+							<div class="flex row">
+								<span class="tempHP flex"><input type="number" name="data.attributes.hp.temp" value="{{actor.data.attributes.hp.temp}}" placeholder="Temp"/></span>
+								<span class="maxHP flex"><input type="number" name="data.attributes.hp.tempmax" value="{{actor.data.attributes.hp.tempmax}}" placeholder="Temp Max"/></span>
+							</div>
+						</div>
+						<div class="line3 flex row dice-and-death">
+							<div class="flex hit-dice column frame">
+								<div class="die-counts flex row">
+								</div>
+								<div class="label flex">Hit Dice</div>
+							</div>
+							<div class="death-saves flex column frame">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="incCol3 flex">
+					<span class="personality"><input type="text" name="data.details.personality.value" value="{{actor.data.details.personality.value}}" placeholder="{{actor.data.details.personality.label}}"/></span>
+					<span class="ideal"><input type="text" name="data.details.ideal.value" value="{{actor.data.details.ideal.value}}" placeholder="{{actor.data.details.ideal.label}}"/></span>
+					<span class="bond"><input type="text" name="data.details.bond.value" value="{{actor.data.details.bond.value}}" placeholder="{{actor.data.details.bond.label}}"/></span>
+					<span class="flaw"><input type="text" name="data.details.flaw.value" value="{{actor.data.details.flaw.value}}" placeholder="{{actor.data.details.flaw.label}}"/></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

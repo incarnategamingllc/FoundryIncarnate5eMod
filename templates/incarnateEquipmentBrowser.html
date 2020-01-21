@@ -1,0 +1,194 @@
+<div id="incBEquipment" class="sidebar-tab compendium" data-pack="{{metadata.package}}.{{metadata.name}}">
+	<div class="mainBlock">
+		<div class="equipmentLeftPane IncarnateLeftPane">
+			<div class="compendium-search">
+				<input type="text" name="equipmentSearch" value placeholder ="Search" autocomplete="off"/>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroOfficial')" style="display:block;">Official</h2>
+			<div class="equipmentBroOfficial" style="display:none">
+				<p><input type="checkbox" value="true" class="true">Official</p>
+				<p><input type="checkbox" value="false" class="false">Not Official</p>
+				<p><input type="checkbox" value="price modified" class="price modified">Price Modified</p>
+				<p><input type="checkbox" value="mechanically modified" class="mechanically modified">Mechanically Modified</p>
+				<p><input type="checkbox" value="description added" class="description added">Description Added</p>
+				<!--<p><input type="checkbox" value="heavily edited" class="heavily edited">Heavily Edited</p>-->
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroType')">Type</h2>
+			<div class="equipmentBroType" style="display:none">
+				<p><input type="checkbox" value="Adventuring Gear" class="Adventuring Gear">Adventuring Gear</p>
+				<p><input type="checkbox" value="Armor" class="Armor">Armor</p>
+				<p><input type="checkbox" value="Food, Drink, and Lodging" class="Food, Drink, and Lodging">Food, Drink, and Lodging</p>
+				<!--<p><input type="checkbox" value="Ingredient" class="Ingredient">Ingredient</p>-->
+				<p><input type="checkbox" value="Mounts and Other Animals" class="Mounts and Other Animals">Mounts and Other Animals</p>
+				<p><input type="checkbox" value="Monstrous Drop" class="Monstrous Drop">Monstrous Drop</p>
+				<p><input type="checkbox" value="Potion" class="Potion">Potion</p>
+				<p><input type="checkbox" value="Scroll" class="Scroll">Scroll</p>
+				<!--<p><input type="checkbox" value="Service" class="Service">Service</p>-->
+				<p><input type="checkbox" value="Tool" class="Tool">Tool</p>
+				<p><input type="checkbox" value="Trade Good" class="Trade Good">Trade Good</p>
+				<p><input type="checkbox" value="Vehicle" class="Vehicle">Vehicle</p>
+				<p><input type="checkbox" value="Weapon" class="Weapon">Weapon</p>
+				<p><input type="checkbox" value="Wondrous Item" class="Wondrous Item">Wondrous Item</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroSubtype')" style="display:block;">Subtype</h2>
+			<div class="equipmentBroSubtype" style="display:none">
+				<p><input type="checkbox" value="Light Armor" class="Light Armor">Light Armor</p>
+				<p><input type="checkbox" value="Medium Armor" class="Medium Armor">Medium Armor</p>
+				<p><input type="checkbox" value="Heavy Armor" class="Heavy Armor">Heavy Armor</p>
+				<p><input type="checkbox" value="Shield" class="Shield">Shield</p>
+				<p><input type="checkbox" value="Simple Melee Weapon" class="Simple Melee Weapon">Simple Melee Weapon</p>
+				<p><input type="checkbox" value="Martial Melee Weapon" class="Martial Melee Weapon">Martial Melee Weapon</p>
+				<p><input type="checkbox" value="Simple Ranged Weapon" class="Simple Ranged Weapon">Simple Ranged Weapon</p>
+				<p><input type="checkbox" value="Martial Ranged Weapon" class="Martial Ranged Weapon">Martial Ranged Weapon</p>
+				<p><input type="checkbox" value="Ammunition" class="Ammunition">Ammunition</p>
+				<p><input type="checkbox" value="Alcohol" class="Alcohol">Alcohol</p>
+				<p><input type="checkbox" value="Arcane Focus" class="Arcane Focus">Arcane Focus</p>
+				<p><input type="checkbox" value="Artisan's Tool" class="Artisan's Tool">Artisan's Tool</p>
+				<p><input type="checkbox" value="Book" class="Book">Book</p>
+				<p><input type="checkbox" value="Container" class="Container">Container</p>
+				<p><input type="checkbox" value="Cosmetic" class="Cosmetic">Cosmetic</p>
+				<p><input type="checkbox" value="Dragon" class="Dragon">Dragon</p>
+				<p><input type="checkbox" value="Druidic Focus" class="Druidic Focus">Druidic Focus</p>
+				<p><input type="checkbox" value="Equipment Kits" class="Equipment Kits">Equipment Kits</p>
+				<p><input type="checkbox" value="Gaming Set" class="Gaming Set">Gaming Set</p>
+				<!--<p><input type="checkbox" value="Hireling" class="Hireling">Hireling</p>-->
+				<p><input type="checkbox" value="Holy Symbol" class="Holy Symbol">Holy Symbol</p>
+				<p><input type="checkbox" value="Improvised Weapon" class="Improvised Weapon">Improvised Weapon</p>
+				<!--<p><input type="checkbox" value="Inn stay (per day)">Inn stay (per day)</p>-->
+				<p><input type="checkbox" value="Land Vehicle" class="Land Vehicle">Land Vehicle</p>
+				<p><input type="checkbox" value="Magical Amulet" class="Magical Amulet">Magical Amulet</p>
+				<p><input type="checkbox" value="Magical Stone" class="Magical Stone">Magical Stone</p>
+				<p><input type="checkbox" value="Mount" class="Mount">Mount</p>
+				<p><input type="checkbox" value="Musical Instrument" class="Musical Instrument">Musical Instrument</p>
+				<p><input type="checkbox" value="Pedestal of Attraction" class="Pedestal of Attraction">Pedestal of Attraction</p>
+				<p><input type="checkbox" value="Pet" class="Pet">Pet</p>
+				<p><input type="checkbox" value="Poisons" class="Poisons">Poisons</p>
+				<p><input type="checkbox" value="Ring" class="Ring">Ring</p>
+				<p><input type="checkbox" value="Spoof" class="Spoof">Spoof</p>
+				<p><input type="checkbox" value="Standard" class="Standard">Standard</p>
+				<p><input type="checkbox" value="Tool" class="Tool">Tool</p>
+				<p><input type="checkbox" value="Waterborne Vehicle" class="Waterborne Vehicle">Waterborne Vehicle</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroRarity')" style="display:block;">Rarity</h2>
+			<div class="equipmentBroRarity" style="display:none">
+				<!--<p><input type="checkbox" value="Very Common" class="Very Common">Very Common</p>-->
+				<p><input type="checkbox" value="Common" class="Common">Common</p>
+				<p><input type="checkbox" value="Uncommon" class="Uncommon">Uncommon</p>
+				<p><input type="checkbox" value="Rare" class="Rare">Rare</p>
+				<p><input type="checkbox" value="Very Rare" class="Very Rare">Very Rare</p>
+				<p><input type="checkbox" value="Legendary" class="Legendary">Legendary</p>
+				<p><input type="checkbox" value="Artifact" class="Artifact">Artifact</p>
+				<p><input type="checkbox" value="Artifact +">Artifact +</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroAttunement')" style="display:block;">Attunement</h2>
+			<div class="equipmentBroAttunement" style="display:none">
+				<p><input type="checkbox" value="true" class="true">True</p>
+				<p><input type="checkbox" value="false" class="false">False</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroPrereqs')" style="display:block;">Attunement Pre-req</h2>
+			<div class="equipmentBroPrereqs" style="display:none">
+				<p><input type="checkbox" value="by an appropriate archetype" class="by an appropriate archetype">By an appropriate archetype</p>
+				<p><input type="checkbox" value="by a dwarf" class="by a dwarf">By a dwarf</p>
+				<p><input type="checkbox" value="by a spellcaster" class="by a spellcaster">By a spellcaster</p>
+				<p><input type="checkbox" value="outdoors at night" class="outdoors at night">Outdoors at night</p>
+				<p><input type="checkbox" value="by a creature of good alignment" class="by a creature of good alignment">By a creature of good alignment</p>
+				<p><input type="checkbox" value="by a creature of evil alignment" class="by a creature of evil alignment">By a creature of evil alignment</p>
+				<p><input type="checkbox" value="bard" class="bard">By a Bard</p>
+				<p><input type="checkbox" value="cleric" class="cleric">By a Cleric</p>
+				<p><input type="checkbox" value="druid" class="druid">By a Druid</p>
+				<p><input type="checkbox" value="paladin" class="paladin">By a Paladin</p>
+				<p><input type="checkbox" value="sorcerer" class="sorcerer">By a Sorcerer</p>
+				<p><input type="checkbox" value="warlock" class="warlock">By a Warlock</p>
+				<p><input type="checkbox" value="wizard" class="wizard">By a Wizard</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroMagic')" style="display:block;">Magical</h2>
+			<div class="equipmentBroMagic" style="display:none">
+				<p><input type="checkbox" value="true" class="true">True</p>
+				<p><input type="checkbox" value="false" class="false">False</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroMundane')" style="display:block;">Mundane</h2>
+			<div class="equipmentBroMundane" style="display:none">
+				<p><input type="checkbox" value="true" class="true">True</p>
+				<p><input type="checkbox" value="false" class="false">False</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroPrice')" style="display:block;">Price</h2>
+			<div class="equipmentBroPrice" style="display:none">
+				<input type="number" name="min" class="min">
+				<p>Minimum Price</p>
+				<input type="number" name="max" class="max">
+				<p>Maximum Price</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroWeight')" style="display:block;">Weight</h2>
+			<div class="equipmentBroWeight" style="display:none">
+				<input type="number" name="min" class="min">
+				<p>Minimum Weight</p>
+				<input type="number" name="max" class="max">
+				<p>Maximum Weight</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroWeaponProp')" style="display:block;">Weapon Properties</h2>
+			<div class="equipmentBroWeaponProp" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="Ammunition" class="Ammunition">Ammunition</p>
+				<p><input type="checkbox" value="Finesse" class="Finesse">Finesse</p>
+				<p><input type="checkbox" value="Heavy" class="Heavy">Heavy</p>
+				<p><input type="checkbox" value="Light" class="Light">Light</p>
+				<p><input type="checkbox" value="Loading" class="Loading">Loading</p>
+				<p><input type="checkbox" value="Range" class="Range">Range</p>
+				<p><input type="checkbox" value="Reach" class="Reach">Reach</p>
+				<p><input type="checkbox" value="Special" class="Special">Special</p>
+				<p><input type="checkbox" value="Thrown" class="Thrown">Thrown</p>
+				<p><input type="checkbox" value="Two-Handed" class="Two-Handed">Two-Handed</p>
+				<p><input type="checkbox" value="Versatile" class="Versatile">Versatile</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroRecommendedLevel')" style="display:block;">Recommended Drop Level</h2>
+			<div class="equipmentBroRecommendedLevel" style="display:none">
+				<input type="number" name="min" class="min">
+				<p>Minimum Level</p>
+				<input type="number" name="max" class="max">
+				<p>Maximum Level</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroRecommendedGenre')" style="display:block;">Recommended User Type</h2>
+			<div class="equipmentBroRecommendedGenre" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="all" class="all">All</p>
+				<p><input type="checkbox" value="mage" class="mage">Mage</p>
+				<p><input type="checkbox" value="melee" class="melee">Melee</p>
+				<p><input type="checkbox" value="range" class="range">Range</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('equipmentBroConsumable')" style="display:block;">Consumable</h2>
+			<div class="equipmentBroConsumable" style="display:none">
+				<p><input type="checkbox" value="true" class="true">true</p>
+				<p><input type="checkbox" value="false" class="false">false</p>
+			</div>
+		</div>
+		<ol class="pack-content directory-list" id="incEquipmentList">
+			{{#each equipments as |equipment id|}}
+			<li class="directory-item pack-entry flexrow item" data-entry-id="{{equipment.data._id}}">
+				<img class="profile" src="{{equipment.data.img}}" title="{{equipment.data.name}}"/>
+				<h4 class="entry-name">
+					<a>{{equipment.data.name}}</a>
+				</h4>
+				<div class="equipment-tags">
+					<span class="bigSpace"/>
+					<span title="EquipmentPrice">{{equipment.data.data.price.value}}</span>
+				</div>
+				<input type="hidden" class="equipmentOfficial" value="{{equipment.data.flags.official}}">
+				<input type="hidden" class="equipmentType" value="{{equipment.data.flags.itemType}}">
+				<input type="hidden" class="equipmentSubtype" value="{{equipment.data.flags.itemSubtype}}">
+				<input type="hidden" class="equipmentRarity" value="{{equipment.data.flags.rarity}}">
+				<input type="hidden" class="equipmentAttune" value="{{equipment.data.flags.attune}}">
+				<input type="hidden" class="equipmentPrereq" value="{{equipment.data.flags.attunePrereq}}">
+				<input type="hidden" class="equipmentMagical" value="{{equipment.data.flags.magical}}">
+				<input type="hidden" class="equipmentMundane" value="{{equipment.data.flags.mundane}}">
+				<input type="hidden" class="equipmentWeight" value="{{equipment.data.data.weight.value}}">
+				<input type="hidden" class="equipmentPrice" value="{{incarnatePrice equipment.data.data.price.value}}">
+				<input type="hidden" class="equipmentProperties" value="{{equipment.data.flags.itemProperties}}">
+				<input type="hidden" class="equipmentWeight" value="{{equipment.data.data.weight.value}}">
+				<input type="hidden" class="equipmentRecommendedDropLevel" value="{{equipment.data.flags.itemRecommendedLevel}}">
+				<input type="hidden" class="equipmentRecommendedGenre" value="{{equipment.data.flags.itemRecommendedGenre}}">
+				<input type="hidden" class="equipmentItemConsumable" value="{{equipment.data.flags.itemConsumable}}">
+			</li>
+			{{/each}}
+		</ol>
+	</div>
+</div>

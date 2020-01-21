@@ -1,0 +1,283 @@
+/*Table Template*/
+{"_id":"X5oScwxYZs4oC4gT","name":"Table Name","permission":{"default":0},"data":{"description":"<p>General Description of Table</p>","row":[{"from":1,"to":2,"column":[{"content":"<p>Result of Roll</p>"}]}]},"flags":{},"type":"table","items":[]}
+/*Journal Template Template*/
+{"_id":"X5oScwxYZs4oC4gT","name":"<p>Journal Template</p>","permission":{"default":0},"data":{"description":"<p>Content of Template</p>"},"flags":{"recurrence":"(never|on open|short rest|long rest|weekly|monthly)","sourceID":"","sourceName":"","templateType":""},"type":"journalTemplate","items":[]}
+/*Item Parcel*/
+{"_id":"X5oScwxYZs4oC4gT","name":"<p>Journal Template</p>","permission":{"default":2},"data":{"currency":{"cp":{"type":"Number","label":"Copper","value":0},"sp":{"type":"Number","label":"Silver","value":0},"gp":{"type":"Number","label":"Gold","value":0},"pp":{"type":"Number","label":"Platinum","value":0}}},"items":[],"type":"character","token":{"flags":{},"name":"","displayName":0,"width":1,"height":1,"scale":1,"elevation":0,"lockRotation":false,"rotation":0,"vision":false,"dimSight":0,"brightSight":0,"dimLight":0,"brightLight":0,"actorId":"","actorLink":false,"disposition":-1,"displayBars":0,"bar1":{},"bar2":{},"randomImg":false},"flags":{"core":"dnd5e.incarnateItemParcelSheet"},"img":"icons/mystery-man.png"}
+/*Pregen Aids*/
+[{"type":"background|class|race","_id":"","description":"","legal":"","children":{"guaranteedChildren":[{"_id":"","level":0,"name":"","pack":""}],"defaultChildren":[{"_id":"","level":0,"name":"","pack":""}],"choices":[{"level":0,"name":"","options":[{"name":"","children":{"_id":"","level":0,"name":"","pack":""}}]}]}}]
+/*Flag System*/
+"flags":{
+	"attackSaves":["str|dex|con|int|wis|cha"],/*bestiary*/
+	"attune":"true|false",/*equipment*/
+	"attunePrereq":"",/*equipment*/
+	"author":"ProNobis|SRD",
+	"backgroundType":"background|backFeature",
+	"casting": {/*classes*/
+		"spellpotency": 0,
+		"spellType": "spellcasting|runecrafting|pact",
+		"ability": ""
+	},
+	"children": [{
+		"_id": "",
+		"level": 0,/*class|race features*/
+		"name": "",
+		"type": "class|feat|journalEntry",
+		"pack": "",
+		"quantity": 1
+	}],
+	"choice": [{
+		"name": "",
+		"level": 0,
+		"choices": [{
+			"name": "",
+			"_id": "",
+			"type": "class|feat|spell",
+			"pack": ""
+		}]
+	}],
+	"class":"Bard|Cleric|Druid|Megalutero|Paladin|Ranger|Rune Blade|Runecrafter|Sorcerer|Warlock|Wizard",/*sets which class items are associated with in class compendium*/
+	"classStat1":"strength|dexterity|constitution|intelligence|wisdom|charisma",
+	"classStat2":"strength|dexterity|constitution|intelligence|wisdom|charisma",
+	"classType":"class|archetype|classTrait|archetypeTrait",/*sets role of items in class compendium*/
+	"components":["v","s","m"],/*spells*/
+	"core":{"sheetClass":"dnd5e.BetterNPCActor5eSheet"},/*actors*/
+	"family": "background|class|equipment|feat|lore|npc|race|spell",/*foundry items*/
+	"function":"Boss|Creature|Healer|Minion|Spell",/*npcs*/
+	"innateSpellcasting":true|false,/*races and subraces*/
+	"itemProperties":["Ammunition|Finesse|Heavy|Light|Loading|Range|Reach|Special|Thrown|Two-Handed|Versatile"],
+	"itemType":"",/*equipment*/
+	"itemSubtype":"",/*equipment*/
+	"itemRecommendedLevel":0-21,
+	"itemRecommendedGenre":["mage|melee|range"],
+	"itemConsumable":"true|false",
+	"languages":["All|Aloii|Abyssal|Aquan|Assassin's Cant|Auran|Choice|Celestial|Common|Deep Speech|Draconic|Druidic|Dwarvish|Elvish|Giant|Gnoll|Gnomish|Goblin|Halfling|Ignan|Infernal|Kutak|Mikon|Orc|Otyugh|Plainstoungue|Primordial|Sahuagin|Sphinx|Sylvan|Terran|Thieve's Cant|Undercommon"],/*races and backgrounds*/
+	"lore":["Celtic|Fantasy|Greek|Hindu|Inuit|Libya|Norse|ProNobis|Real|Roman"],/*npcs*/
+	"magical":"true|false",/*equipment*/
+	"mundane":"true|false",/*equipment*/
+	"npcType":"aberration|beast|celestial|construct|dragon|elemental|fey|fiend|giant|humanoid|monstrosity|ooze|plant|undead",
+	"npcSubtype":"50% neutral good or 50% neutral evil|acephali|any race|demon|devil|doppelganger|dwarf|elf|gnoll|gnome|goblinoid|grimlock|human|ijirait|kobold|lizardfolk|merfolk|orc|rakshasa|sahuagin|titan|tuniit",
+	"npcSubtype2":"shapechange",
+	"official": "true|false|price modified|mechanically modified|description added|heavily edited",
+	"origin": {
+		"level": 0,
+		"name": "",
+		"pack": "",
+		"type": "class|feat|journalEntry|actor",
+		"_id": ""
+	},
+	"originId":"",/*This id is identical to origin._id but is at the top tier of flags to allow for quicker searching*/
+	"parents": [{
+		"_id": "",
+		"level": 0,
+		"name": "",
+		"type": "class|feat|journalEntry",
+		"pack": ""
+	}],
+	"raceBoosts":[{"ability":"strength|dexterity|constitution|intelligence|wisdom|charisma|choice","change":-2|-1|1|2}],
+	"raceDarkvision":0|60|120|180,
+	"raceType":"race|subrace|raceTrait|subraceTrait",
+	"rarity":"Common|Uncommon|Rare|Very Rare|Legendary|Artifact|Artifact +",
+	"recurrence":"(never|on open|short rest|long rest|weekly|monthly)",/*tables | journal templates*/
+	"resources": [{/*class|race features*/
+		"type": "String",
+		"label": "",
+		"value": [{
+			"startLevel": 0,
+			"endLevel": 0,
+			"shortRest": false,
+			"longRest": false,
+			"value": 0,
+			"ability":"strength|dexterity|constitution|intelligence|wisdom|charisma|default|null",
+			"classMult":"Barbarian|Bard|Cleric|Druid|Fighter|Megalutero|Monk|Paladin|Ranger|Rogue|Rune Blade|Runecrafter|Sorcerer|Total|Wizard|Warlock"
+		}]
+	}],
+	"school": "Abjuration|Conjuration|Divination|Enchantment|Evocation|Illusion|Necromancy|Transmutation",/*spells*/
+	"skills":["Acrobatics|Animal Handling|Arcana|Athletics|Deception|History|Insight|Intimidation|Investigation|Medicine|Nature|Perception|Performance|Persuasion|Religion|Sleight of Hand|Stealth|Survival"],
+	"source": "((Bard)?(, )?(Cleric)?(, )?(Druid)?(, )?(Megalutero)?(, )?(Paladin)?(, )?(Ranger)?(, )?(Rune Blade)?(, )?(Runecrafter)?(, )?(Sorcerer)?(, )?(Warlock)?(, )?(Wizard)?)|(Archetype Only)",/*spells*/
+	"startingGP":0,
+	"terrain":["Abandoned Ruin|Arctic|Cavern|Coastal|Desert|Forest|Grassland|Hill|Jungle|Mountain|Planes|Sewers|Sky|Swamp|Underwater|Urban|Volcanic"],/*npcs*/
+	"tools":["Alchemist's Supplies|Bagpipes|Brewer's Supplies|Calligrapher's Supplies|Carpenter's Tools|Cartographer's Tools|Chess Set|Cobbler's Tools|Cook's Utensils|Dice Set|Disguise Kit|Doctor's Tools|Drum|Dulcimer|Flute|Forgery Kit|Glassblower's Tools|Harmonica|Harp|Herbalism Kit|Horn|Jeweler's Tools|Juggling Pins|Keg of Ale|Klimon Arm Wrestling Set|Leatherworker's Tools|Lute|Lyre|Mason's Tools|Matching Cards|Navigator's Tools|Painter's Supplies|Pan Flute|Playing Card Set|Poisoner's Kit|Potter's Tools|Shawm|Smith's Tools|Thieves' Tools|Tinker's Tools|Viol|Weaver's Tools|Woodcarver's Tools"],
+	"unidentifiedDescription":"<p>html block</p>",
+	"unidentifiedName":""
+}
+/*Reserved Pack Names*/
+"pack":"incarnateFiveECompendia.incarnateBackground|incarnateFiveECompendia.incarnateBestiary|incarnateFiveECompendia.incarnateClass|incarnateFiveECompendia.incarnateEquipment|incarnateFiveECompendia.incarnateFeat|incarnateFiveECompendia.incarnateItemPacks|incarnateFiveECompendia.incarnateLore|incarnateFiveECompendia.incarnateRaces|incarnateFiveECompendia.incarnateRiddles|incarnateFiveECompendia.incarnateRules|incarnateFiveECompendia.incarnateSpells"
+incarnateWorldBuilding:{
+	all:{
+		lore:"cel|fan|gre|hin|inu|lib|nor|pro|rea|rom",
+		official:"tru|fal|pri|mec|des|hea",
+		origin:{
+			level:0,
+			name:"string",
+			pack:"",
+			type:"class|feat|journalEntry|actor",
+			_id:""
+		},
+		parents:[{
+			_id:"",
+			level:0,
+			name:"string",
+			type:"class|feat|journalEntry|actor",
+			pack:""
+		}]
+	}
+}
+incarnateFiveEMod:{
+	all:{
+		family:"background|class|item|lore|npc|race|spell|table|rule",
+	},
+	tables:{
+		recurrence:"nev|ono|sho|lon|wee|mon|ann";
+	}
+	bestiary:{
+		attackSaves:{value:["str|dex|con|int|wis|cha"]},
+		author:"ProNobis|SRD",
+		function:"bos|cre|hea|min|spe",
+		type:"abe|bea|cel|con|dra|ele|fey|fie|gia|hum|mon|ooz|pla|und"
+		shapechanger:true|false,
+		terrain:{value:["aba|arc|cav|coa|des|for|gra|hil|jun|mou|pla|sew|sky|swa|und|urb|vol"]},
+		type:"neu|ace|any|dem|dev|dop|dwa|elf|gno|gno|gob|gri|hum|iji|kob|liz|mer|orc|rak|sah|tit|tun"
+	},
+	items:{
+		attune:true|false,
+		attunePrereq:"string",
+		consum:true|false,
+		magical:true|false,
+		mundane:true|false,
+		rarity:"vco|com|unc|rar|vra|leg|art|artp",
+		recLevel:1,
+		recGenre:["Mage|Melee|Range|All"],
+		subtype:"lig|med|hea|shi|simm|marm|simr|marr|amm|alc|arc|art|boo|con|cos|dra|dru|equ|gam|hir|hol|imp|inn|lan|maga|mags|mea|mou|mus|ped|pet|poi|rin|spo|sta|sta|too|wat|zef",
+		type:"adv|arm|cla|foo|ing|mou|mon|pot|scr|too|tra|veh|wea|won"
+	},
+	equipment:{
+		ac:{
+			boost:{
+				abilities:[{
+					ability:"str|dex|con|int|wis|cha",
+					max:4
+				}]
+			},
+			formula:{
+				abilities:[{
+					ability:"str|dex|con|int|wis|cha",
+					max:4
+				}]
+			}
+		}
+	}
+	weapon:{
+		prop:{value:["amm|fin|fir|hvy|lgt|lod|ran|rch|rel|spe|thr|two|ver"]}
+	},
+	feat:{
+		ac:{
+			active:true|false
+			boost:{
+				abilities:[{
+					ability:"str|dex|con|int|wis|cha",
+					max:4,
+					min:0
+				}],
+				base:0
+			},
+			formula:{
+				abilities:[{
+					ability:"str|dex|con|int|wis|cha",
+					max:4,
+					min:0
+				}],
+				base:0
+			}
+		},
+		children:[{
+			_id:"",
+			level:1,
+			name:"string",
+			type:"backpack|consumable|equipment|weapon|tool|feat|class|spell",
+			pack:"",
+			quantity:1
+		}],
+		class:{value:["all|barb|bard|cle|dru|fit|meg|mon|pal|ran|rog|run|run|sor|war|wiz|cus1|cus2|cus3|cus4"]},
+		resources:[{
+			type:"string",
+			label:"",
+			value:[{
+				startLevel:0,
+				endLevel:0,
+				shortRest:true|false,
+				value:1,
+				ability:"str|dex|con|int|wis|cha",
+				classMult:"all|barb|bard|cle|dru|fit|meg|mon|pal|ran|rog|run|run|sor|war|wiz|cus1|cus2|cus3|cus4"
+			}]
+		}],
+		skills:{value:["acr|ani|arc|ath|dec|his|ins|int|inv|med|nat|per|per|pers|rel|sle|ste|sur"]},
+		tools:{value:["alc|bag|bre|cal|carp|cart|che|cob|coo|dic|dis|doc|dru|dul|flu|for|gla|harm|harp|her|hor|jew|jug|keg|kli|lea|lut|lyr|mas|mat|nav|pai|pan|pla|poi|pot|sha|smi|thi|tin|vio|wea|woo"]},
+		type:"backgroundTrait|classTrait|archetypeTrait|raceTrait|subraceTrait"
+	},
+	class:{
+		abilityPriority:{
+			stat1:"str|dex|con|int|wis|cha",
+			stat2:"str|dex|con|int|wis|cha",
+			stat3:"str|dex|con|int|wis|cha",
+			stat4:"str|dex|con|int|wis|cha",
+			stat5:"str|dex|con|int|wis|cha",
+			stat6:"str|dex|con|int|wis|cha",
+		},
+		casting:{/*class|race families only*/
+			ability:"str|dex|con|int|wis|cha",
+			potency:0,
+			type:"spellcasting|runecrafting|pact|innate",
+			defaultSpells:[{
+				_id:"",
+				level:1,
+				name:"string",
+				spellLevel:1,
+				pack:""
+			}]
+		},
+		children:[{
+			_id:"",
+			level:1,
+			name:"string",
+			type:"backpack|consumable|equipment|weapon|tool|feat|class|spell",
+			pack:"",
+			quantity:1/*only for items*/
+		}],
+		choice:[{
+			name:"string",
+			level:0,
+			choices:[{
+				name:"string",
+				_id:"",
+				type:"backpack|consumable|equipment|weapon|tool|feat|class|spell",
+				pack:"",
+				quantity:1/*only for items*/
+			}]
+		}],
+		darkvision:-180|-120|-60|0|60|120|180,
+		gp:15,/*background family only*/
+		languages{value:["aarakocra|abyssal|all|alo|aquan|asc|auran|cant|celestial|cho|common|deep|draconic|druidic|dwarvish|elvish|giant|gith|gnoll|gnomish|goblin|halfling|ignan|infernal|kut|mik|orc|oty|pla|primordial|sah|sph|sylvan|terran|undercommon"]},
+		statBoost:[{/*race family only*/
+			ability:"str|dex|con|int|wis|cha",
+			change:-2|-1|1|2
+		}],
+		skills:{
+			num:2,
+			choice:{value:["acr|ani|arc|ath|dec|his|ins|int|inv|med|nat|perc|perf|pers|rel|sle|ste|sur"]},
+			default:{value:["acr|ani|arc|ath|dec|his|ins|int|inv|med|nat|perc|perf|pers|rel|sle|ste|sur"]}
+		},
+		suggestedCharacteristics:{
+			personality:"id",
+			ideal:"id",
+			bond:"id",
+			flaw:"id"
+		},
+		tools:{value:["alc|bag|bre|cal|carp|cart|che|cob|coo|dic|dis|doc|dru|dul|flu|for|gla|harm|harp|her|hor|jew|jug|keg|kli|lea|lut|lyr|mas|mat|nav|pai|pan|pla|poi|pot|sha|smi|thi|tin|vio|wea|woo"]},
+		type:"background|class|archetype|race|subrace"
+	},
+	spell:{
+		class:{value:["barb|bard|cle|dru|fit|meg|mon|pal|ran|rog|run|run|sor|war|wiz|cus1|cus2|cus3|cus4"]},
+		componenents:{value:["v|s|m"]}
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"name": "incarnateFiveEMod",
+	"title": "Incarnate 5e Module",
+	"description": "Adds features that increase ease of use for the 5e system",
+	"version": "0.1.1",
+	"author": "Philip aka ProNobis",
+    	"manifest": "https://incarnatefoundry.s3.us-east-2.amazonaws.com/*/public/modules/incarnateFiveEMod/module.json",
+	"minimumCoreVersion": "0.4.1",
+   	"download": "https://incarnatefoundry.s3.us-east-2.amazonaws.com/*/public/modules/incarnateFiveEMod/incaranteFiveEMod.zip",
+	"systems": ["dnd5e"],
+	"scripts": ["./incarnateFiveEMod.js"],
+	"styles": ["./incarnateFiveEMod.css"],
+	"packs": []
+}

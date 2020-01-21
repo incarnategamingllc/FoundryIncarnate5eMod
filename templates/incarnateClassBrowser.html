@@ -1,0 +1,72 @@
+<div id="incBClass" class="sidebar-tab compendium" data-pack="{{metadata.package}}.{{metadata.name}}">
+	<div class="mainBlock">
+		<div class="incClassLeftPane IncarnateLeftPane">
+			<div class="compendium-search">
+				<input type="text" name="incClassSearch" value placeholder ="Search" autocomplete="off"/>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incClassBroOfficial')" style="display:block;">Official</h2>
+			<div class="incClassBroOfficial" style="display:none">
+				<p><input type="checkbox" value="true" class="true">Official</p>
+				<p><input type="checkbox" value="false" class="false">Not Official</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incClassBroType')">Type</h2>
+			<div class="incClassBroType" style="display:block">
+				<p><input type="checkbox" value="class" class="class">Class</p>
+				<p><input type="checkbox" value="archetype" class="archetype">Archetype</p>
+				<p><input type="checkbox" value="classTrait" class="classTrait">Class Trait</p>
+				<p><input type="checkbox" value="archetypeTrait" class="archetypeTrait">Archetype Trait</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incClassBroClass')" style="display:block;">Class</h2>
+			<div class="incClassBroClass" style="display:none">
+				<p><input type="checkbox" value="Barbarian" class="Barbarian">Barbarian</p>
+				<p><input type="checkbox" value="Bard" class="Bard">Bard</p>
+				<p><input type="checkbox" value="Cleric" class="Cleric">Cleric</p>
+				<p><input type="checkbox" value="Druid" class="Druid">Druid</p>
+				<p><input type="checkbox" value="Fighter" class="Fighter">Fighter</p>
+				<p><input type="checkbox" value="Monk" class="Monk">Monk</p>
+				<p><input type="checkbox" value="Megalutero" class="Megalutero">Megalutero</p>
+				<p><input type="checkbox" value="Paladin" class="Paladin">Paladin</p>
+				<p><input type="checkbox" value="Ranger" class="Ranger">Ranger</p>
+				<p><input type="checkbox" value="Rogue" class="Rogue">Rogue</p>
+				<p><input type="checkbox" value="Rune Blade" class="Rune Blade">Rune Blade</p>
+				<p><input type="checkbox" value="Runecrafter" class="Runecrafter">Runecrafter</p>
+				<p><input type="checkbox" value="Sorcerer" class="Sorcerer">Sorcerer</p>
+				<p><input type="checkbox" value="Warlock" class="Warlock">Warlock</p>
+				<p><input type="checkbox" value="Wizard" class="Wizard">Wizard</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incClassPrimaryAbility')" style="display:block;">Primary Ability</h2>
+			<div class="incClassPrimaryAbility" style="display:none">
+				<p><input type="checkbox" value="strength" class="strength">strength</p>
+				<p><input type="checkbox" value="dexterity" class="dexterity">dexterity</p>
+				<p><input type="checkbox" value="constitution" class="constitution">constitution</p>
+				<p><input type="checkbox" value="intelligence" class="intelligence">intelligence</p>
+				<p><input type="checkbox" value="wisdom" class="wisdom">wisdom</p>
+				<p><input type="checkbox" value="charisma" class="charisma">charisma</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incClassSecondaryAbility')" style="display:block;">Secondary Ability</h2>
+			<div class="incClassSecondaryAbility" style="display:none">
+				<p><input type="checkbox" value="strength" class="strength">strength</p>
+				<p><input type="checkbox" value="dexterity" class="dexterity">dexterity</p>
+				<p><input type="checkbox" value="constitution" class="constitution">constitution</p>
+				<p><input type="checkbox" value="intelligence" class="intelligence">intelligence</p>
+				<p><input type="checkbox" value="wisdom" class="wisdom">wisdom</p>
+				<p><input type="checkbox" value="charisma" class="charisma">charisma</p>
+			</div>
+		</div>
+		<ol class="pack-content directory-list" id="incClassList">
+			{{#each incClasses as |incClass id|}}
+			<li class="directory-item pack-entry flexrow item" data-entry-id="{{incClass.data._id}}">
+				<img class="profile" src="{{incClass.data.img}}" title="{{incClass.data.name}}"/>
+				<h4 class="entry-name incarnate-entry-name">
+					<a>{{incClass.data.name}}</a>{{#if incClass.data.data.subclass}}<a>{{incClass.data.data.subclass.value}}</a>{{/if}}
+				</h4>
+				<input type="hidden" class="incClassOfficial" value="{{incClass.data.flags.official}}">
+				<input type="hidden" class="incClassClass" value="{{incClass.data.flags.class}}">
+				<input type="hidden" class="incClassType" value="{{incClass.data.flags.classType}}">
+				<input type="hidden" class="incClassStat1" value="{{incClass.data.flags.classStat1}}">
+				<input type="hidden" class="incClassStat2" value="{{incClass.data.flags.classStat2}}">
+			</li>
+			{{/each}}
+		</ol>
+	</div>
+</div>

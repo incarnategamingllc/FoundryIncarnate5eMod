@@ -1,0 +1,107 @@
+<div id="incBRace" class="sidebar-tab compendium" data-pack="{{metadata.package}}.{{metadata.name}}">
+	<div class="mainBlock">
+		<div class="incRaceLeftPane IncarnateLeftPane">
+			<div class="compendium-search">
+				<input type="text" name="incRaceSearch" value placeholder ="Search" autocomplete="off"/>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incRaceBroOfficial')" style="display:block;">Official</h2>
+			<div class="incRaceBroOfficial" style="display:none">
+				<p><input type="checkbox" value="true" class="true">Official</p>
+				<p><input type="checkbox" value="false" class="false">Not Official</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incRaceBroType')">Type</h2>
+			<div class="incRaceBroType" style="display:block">
+				<p><input type="checkbox" value="race" class="race">Race</p>
+				<p><input type="checkbox" value="subrace" class="subrace">Subrace</p>
+				<p><input type="checkbox" value="raceTrait" class="raceTrait">Race Trait</p>
+				<p><input type="checkbox" value="subraceTrait" class="subraceTrait">Subrace Trait</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incRaceBroSpellcasting')" style="display:block;">Innate Spellcasting</h2>
+			<div class="incRaceBroSpellcasting" style="display:none">
+				<p><input type="checkbox" value="true" class="true">True</p>
+				<p><input type="checkbox" value="false" class="false">False</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incRaceBroLanguages')" style="display:block;">Languages</h2>
+			<div class="incRaceBroLanguages" style="display:none">
+				<!--<p><input type="checkbox" value="All" class="All">All</p>-->
+				<p><input type="checkbox" value="Aloii" class="Aloii">Aloii</p>
+				<p><input type="checkbox" value="Abyssal" class="Abyssal">Abyssal</p>
+				<p><input type="checkbox" value="Aquan" class="Aquan">Aquan</p>
+				<!--<p><input type="checkbox" value="Assassin's Cant" class="Assassin's Cant">Assassin's Cant</p>-->
+				<p><input type="checkbox" value="Auran" class="Auran">Auran</p>
+				<p><input type="checkbox" value="Choice" class="Choice">Choice</p>
+				<p><input type="checkbox" value="Celestial" class="Celestial">Celestial</p>
+				<p><input type="checkbox" value="Common" class="Common">Common</p>
+				<p><input type="checkbox" value="Deep Speech" class="Deep Speech">Deep Speech</p>
+				<p><input type="checkbox" value="Draconic" class="Draconic">Draconic</p>
+				<p><input type="checkbox" value="Druidic" class="Druidic">Druidic</p>
+				<p><input type="checkbox" value="Dwarvish" class="Dwarvish">Dwarvish</p>
+				<p><input type="checkbox" value="Elvish" class="Elvish">Elvish</p>
+				<p><input type="checkbox" value="Giant" class="Giant">Giant</p>
+				<p><input type="checkbox" value="Gnoll" class="Gnoll">Gnoll</p>
+				<p><input type="checkbox" value="Gnomish" class="Gnomish">Gnomish</p>
+				<p><input type="checkbox" value="Goblin" class="Goblin">Goblin</p>
+				<p><input type="checkbox" value="Halfling" class="Halfling">Halfling</p>
+				<p><input type="checkbox" value="Ignan" class="Ignan">Ignan</p>
+				<p><input type="checkbox" value="Infernal" class="Infernal">Infernal</p>
+				<p><input type="checkbox" value="Kutak" class="Kutak">Kutak</p>
+				<p><input type="checkbox" value="Mikon" class="Mikon">Mikon</p>
+				<p><input type="checkbox" value="Orc" class="Orc">Orc</p>
+				<p><input type="checkbox" value="Otyugh" class="Otyugh">Otyugh</p>
+				<p><input type="checkbox" value="Plainstoungue" class="Plainstoungue">Plainstoungue</p>
+				<p><input type="checkbox" value="Primordial" class="Primordial">Primordial</p>
+				<p><input type="checkbox" value="Sahuagin" class="Sahuagin">Sahuagin</p>
+				<p><input type="checkbox" value="Sphinx" class="Sphinx">Sphinx</p>
+				<p><input type="checkbox" value="Sylvan" class="Sylvan">Sylvan</p>
+				<p><input type="checkbox" value="Terran" class="Terran">Terran</p>
+				<!--<p><input type="checkbox" value="Thieve's Cant" class="Thieve's Cant">Thieve's Cant</p>-->
+				<p><input type="checkbox" value="Undercommon" class="Undercommon">Undercommon</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incRaceAbility2')" style="display:block;">Ability +2</h2>
+			<div class="incRaceAbility2" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="strength2" class="strength2">strength</p>
+				<p><input type="checkbox" value="dexterity2" class="dexterity2">dexterity</p>
+				<p><input type="checkbox" value="constitution2" class="constitution2">constitution</p>
+				<p><input type="checkbox" value="intelligence2" class="intelligence2">intelligence</p>
+				<p><input type="checkbox" value="wisdom2" class="wisdom2">wisdom</p>
+				<p><input type="checkbox" value="charisma2" class="charisma2">charisma</p>
+				<p><input type="checkbox" value="choice2" class="choice2">choice</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incRaceAbility1')" style="display:block;">Ability +1</h2>
+			<div class="incRaceAbility1" style="display:none">
+				<p><select name="andOr"><option value="or">Or</option><option value="and">And</option></select></p>
+				<p><input type="checkbox" value="strength1" class="strength1">strength</p>
+				<p><input type="checkbox" value="dexterity1" class="dexterity1">dexterity</p>
+				<p><input type="checkbox" value="constitution1" class="constitution1">constitution</p>
+				<p><input type="checkbox" value="intelligence1" class="intelligence1">intelligence</p>
+				<p><input type="checkbox" value="wisdom1" class="wisdom1">wisdom</p>
+				<p><input type="checkbox" value="charisma1" class="charisma1">charisma</p>
+				<p><input type="checkbox" value="choice1" class="choice1">choice</p>
+			</div>
+			<h2 onclick="IncarnateCompendium.incarnateShowHide('incBroRaceDarkvision')" style="display:block;">Darkvision</h2>
+			<div class="incBroRaceDarkvision" style="display:none">
+				<p><input type="checkbox" value="0" class="0">none</p>
+				<p><input type="checkbox" value="60" class="60">60 ft</p>
+				<p><input type="checkbox" value="120" class="120">120 ft</p>
+				<p><input type="checkbox" value="180" class="180">180 ft</p>
+			</div>
+		</div>
+		<ol class="pack-content directory-list" id="incRaceList">
+			{{#each incRaces as |incRace id|}}
+			<li class="directory-item pack-entry flexrow item" data-entry-id="{{incRace.data._id}}">
+				<img class="profile" src="{{incRace.data.img}}" title="{{incRace.data.name}}"/>
+				<h4 class="entry-name incarnate-entry-name">
+					<a>{{incRace.data.name}}</a>{{#if incRace.data.data.subclass}}<a>{{incRace.data.data.subclass.value}}</a>{{/if}}
+				</h4>
+				<input type="hidden" class="incRaceOfficial" value="{{incRace.data.flags.official}}">
+				<input type="hidden" class="incRaceLanguages" value="{{incRace.data.flags.languages}}">
+				<input type="hidden" class="incRaceInnate" value="{{incRace.data.flags.innateSpellcasting}}">
+				<input type="hidden" class="incRaceType" value="{{incRace.data.flags.raceType}}">
+				<input type="hidden" class="incRaceStat" value="{{incarnateRaceBoost incRace.data.flags.raceBoosts}}">
+				<input type="hidden" class="incRaceDarkvision" value="{{incRace.data.flags.raceDarkvision}}">
+			</li>
+			{{/each}}
+		</ol>
+	</div>
+</div>

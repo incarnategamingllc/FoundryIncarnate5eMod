@@ -1,0 +1,183 @@
+<form class="editable">
+	<nav class="tabs" data-group="group1">
+		<a class="item" data-tab="tab1">Backgrounds</a>
+		<a class="item" data-tab="tab2">Classes</a>
+		<a class="item" data-tab="tab3">Races</a>
+		<!--<a class="item" data-tab="tab4">Resources</a>-->
+		<!--<a class="item" data-tab="tab5">Random Encounter</a>-->
+		<a class="item" data-tab="tab6">NPC Stat Roll</a>
+		<a class="item" data-tab="tab10">Setup</a>
+	</nav>
+	<div class="tab" data-tab="tab1" data-group="group1">
+		{{#each incRegions.backgrounds as |background id|}}
+			<div class="incarnate-regions top-level backgrounds" name="{{background.name}}">
+				<div class="initial-description">
+					<p class="entry-name">{{background.name}}</p>
+					<input class="incarnate-regions-input" type="number" value="{{background.priority}}" name="backgrounds.{{id}}.priority"/>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+	<div class="tab contains-sub-category" data-tab="tab2" data-group="group1">
+		{{#each incRegions.classes as |class id|}}
+			<div class="incarnate-regions top-level class" name="{{class.name}}">
+				<div class="initial-description">
+					<p class="entry-name">{{class.name}}</p>
+					<input class="incarnate-regions-input" type="number" value="{{class.priority}}" name="classes.{{id}}.priority"/>
+				</div>
+				<div class="archetypes">
+					{{#each class.archetypes as |archetype iid|}}
+					<div class="archetype-level class" name="{{archetype.name}}">
+						<p class="archetype-name">{{archetype.name}}</p>
+						<input class="incarnate-regions-input" type="number" value="{{archetype.priority}}" name="classes.{{id}}.archetypes.{{iid}}.priority"/>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		{{/each}}
+	</div>
+	<div class="tab contains-sub-category" data-tab="tab3" data-group="group1">
+		{{#each incRegions.races as |race id|}}
+			<div class="incarnate-regions top-level race" name="{{race.name}}">
+				<div class="initial-description">
+					<p class="entry-name">{{race.name}}</p>
+					<input class="incarnate-regions-input" type="number" value="{{race.priority}}" name="races.{{id}}.priority"/>
+				</div>
+				<div class="archetypes">
+					{{#each race.archetypes as |archetype iid|}}
+					<div class="archetype-level race" name="{{archetype.name}}">
+						<p class="archetype-name">{{archetype.name}}</p>
+						<input class="incarnate-regions-input" type="number" value="{{archetype.priority}}" name="races.{{id}}.archetypes.{{iid}}.priority"/>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		{{/each}}
+	</div>
+	<div class="tab resources" data-tab="tab4" data-group="group1">
+	</div>
+	<div class="tab random-encounter-generator" data-tab="tab5" data-group="group1">
+	</div>
+	<div class="tab incarnateStatSettings flex" data-tab="tab6" data-group="group1">
+		<div class="basics section column">
+			<span class="heading flex">Basics</span>
+			<div class="flex row">
+				<div class="rollString flex column">
+					<span class="label flex">Roll String</span>
+					<input class="statSetting flex" type="text" value="{{incRegions.incStatRoll.dice}}" name="incStatRoll.dice"/>
+				</div>
+				<div class="rolls flex column">
+					<span class="label flex"># Stats</span>
+					<input class="statSetting flex" type="number" value="{{incRegions.incStatRoll.rolls}}" name="incStatRoll.rolls"/>
+				</div>
+			</div>
+			<span class="advice flex">Common values include: 4d6dl, 5d6dl2, 3d6, 2d6+6, 4d4+2, 1d20</span>
+		</div>
+		<div class="guarantees section column">
+			<span class="heading flex">Guarantees</span>
+			<div class="flex column">
+				<div class="stats flex row">
+					<span class="heading2 flex-static">Type</span>
+					<span class="heading2 flex-static">Max</span>
+					<span class="heading2 flex-static">Min</span>
+				</div>
+				<div class="stats flex row">
+					<span class="label flex-static">Stat</span>
+					<span class="flex-static"><input class="statSetting" type="number" value="{{incRegions.incStatRoll.guarantee.max}}" name="incStatRoll.guarantee.max"/></span>
+					<span class="flex-static"><input class="statSetting" type="number" value="{{incRegions.incStatRoll.guarantee.min}}" name="incStatRoll.guarantee.min"/></span>
+				</div>
+				<div class="modSum flex row">
+					<span class="label flex-static">Mod Sum</span>
+					<span class="flex-static"><input class="statSetting" type="number" value="{{incRegions.incStatRoll.guarantee.modSumMax}}" name="incStatRoll.guarantee.modSumMax"/></span>
+					<span class="flex-static"><input class="statSetting" type="number" value="{{incRegions.incStatRoll.guarantee.modSumMin}}" name="incStatRoll.guarantee.modSumMin"/></span>
+				</div>
+				<div class="statSumMax flex row">
+					<span class="label flex-static">Stat Sum</span>
+					<span class="flex-static"><input class="statSetting" type="number" value="{{incRegions.incStatRoll.guarantee.statSumMax}}" name="incStatRoll.guarantee.statSumMax"/></span>
+					<span class="flex-static"><input class="statSetting" type="number" value="{{incRegions.incStatRoll.guarantee.statSumMin}}" name="incStatRoll.guarantee.statSumMin"/></span>
+				</div>
+			</div>
+			<div class="flex row">
+				<div class="atLeast flex column section2">
+					<div class="flex row">
+						<span class="heading2 flex">At Least</span>
+						<a class="atLeast-control atLeast-create flex-right" title="Create AtLeast"><i class="fas fa-plus"></i> Add</a>
+					</div>
+					<span class="advice flex">At least [quantity] scores will be [value] or more</span>
+					<div class="flex row column-headers">
+						<span class="label flex-static">Quantity</span>
+						<span class="label flex-static">Value</span>
+					</div>
+					{{#each incRegions.incStatRoll.guarantee.atLeast as |node id|}}
+					<div class="atLeast-entry row flex" data-id="{{id}}">
+						<div class="quantity flex-static">
+							<input class="statSetting" type="Number" name="incStatRoll.guarantee.atLeast.{{id}}.quantity" value="{{node.quantity}}"/>
+						</div>
+						<div class="value flex-static">
+							<input class="statSetting" type="Number" name="incStatRoll.guarantee.atLeast.{{id}}.value" value="{{node.value}}"/>
+						</div>
+						<a class="atLeast-control atLeast-delete flex-right" title="Delete atLeast"><i class="fas fa-trash"></i></a>
+					</div>
+					{{/each}}
+				</div>
+				<div class="atMost section2 column">
+					<div class="flex row">
+						<span class="heading2 flex">At Most</span>
+						<a class="atMost-control atMost-create flex-right" title="Create atMost"><i class="fas fa-plus"></i> Add</a>
+					</div>
+					<span class="advice flex">At least [quantity] scores will be [value] or less</span>
+					<div class="flex row column-headers">
+						<span class="label flex-static">Quantity</span>
+						<span class="label flex-static">Value</span>
+					</div>
+					{{#each incRegions.incStatRoll.guarantee.atMost as |node id|}}
+					<div class="atMost-entry row flex" data-id="{{id}}">
+						<div class="quantity flex-static">
+							<input class="statSetting" type="Number" name="incStatRoll.guarantee.atMost.{{id}}.quantity" value="{{node.quantity}}"/>
+						</div>
+						<div class="value flex-static">
+							<input class="statSetting" type="Number" name="incStatRoll.guarantee.atMost.{{id}}.value" value="{{node.value}}"/>
+						</div>
+						<a class="atMost-control atMost-delete flex-right" title="Delete atMost"><i class="fas fa-trash"></i></a>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+		<div class="max-boosted section flex row">
+			<span class="label flex">Max score after racial and ability score improvement?</span>
+			<input class="statSetting flex-auto" type="number" value="{{incRegions.incStatRoll.maxBoosted}}" name="incStatRoll.maxBoosted"/>
+		</div>
+		<div class="abort section flex row">
+			<span class="label flex">Return next roll after how many failed attempts?</span>
+			<input class="statSetting flex-auto" type="number" value="{{incRegions.incStatRoll.abortCountTrigger}}" name="incStatRoll.abortCountTrigger"/>
+		</div>
+	</div>
+	<div class="tab" data-tab="tab10" data-group="group1">
+		<div class="incarnate-regions-buttons">
+			<button class="inline mirror-world-settings" type="button">Mirror World Settings</button>
+			<button class="inline mirror-parent-settings" type="button">Mirror Parent Folder Settings</button>
+			<button class="inline setup-regions" type="button">Default Settings</button>
+			<button class="inline clear-regions" type="button">Clear Settings</button>
+			<button class="inline add-compendium" type="button">Add Compendium</button>
+		</div>
+		<div class="incarnate-regions top-level">
+			<div class="initial-description">
+				<p class="entry-name">Max XP</p>
+				<input class="incarnate-regions-input" type="number" value="{{incRegions.maxXP}}" name="maxXP"/>
+			</div>
+			<div class="initial-description">
+				<p class="entry-name">Min XP</p>
+				<input class="incarnate-regions-input" type="number" value="{{incRegions.minXP}}" name="minXP"/>
+			</div>
+			<div class="initial-description">
+				<p class="entry-name">Party Level</p>
+				<input class="incarnate-regions-input" type="number" value="{{incRegions.partyLevel}}" name="partyLevel"/>
+			</div>
+			<div class="initial-description">
+				<p class="entry-name">Party Size</p>
+				<input class="incarnate-regions-input" type="number" value="{{incRegions.partySize}}" name="partySize"/>
+			</div>
+		</div>
+	</div>
+</form>

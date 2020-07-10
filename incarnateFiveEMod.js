@@ -64,7 +64,7 @@ Hooks.on('ready', async () =>  {
 		var cached_function = ActorSheet.prototype._onItemSummary;
 		return function(event) {
 			var result = cached_function.apply(this, arguments); // use .apply() to call it
-			IncarnateReference.crossReferenceSetClick($(event.currentTarget).parents('.item')[0]);
+			Reference.crossReferenceSetClick($(event.currentTarget).parents('.item')[0]);
 			return result;
 		};
 	})();
@@ -89,7 +89,7 @@ Hooks.on('ready', async () =>  {
 	const IncarnateNextRound = (function () {
 		var cached_function = Combat.prototype.nextRound;
 		return function(){
-			IncarnateCalendar.secondChange(6);
+			Calendar.secondChange(6);
 			var result = cached_function.apply(this, arguments);
 			return result;
 		}
@@ -502,7 +502,7 @@ Hooks.on("renderGmsBlind", (gmBlindSheet,html,data) => {
 	var form;
 	if (app.tagName === "FORM"){
 		form = app;
-		app = IncarnateReference.getClosestClass(form,"app");
+		app = Reference.getClosestClass(form,"app");
 	}else{
 		form = app.getElementsByTagName("form")[0];
 	}
@@ -742,7 +742,7 @@ Hooks.on("preCreateItem",(constructor,data)=>{
 Hooks.on("renderItemSheet",(itemSheet,html,entity)=>{
 	if (game.settings.get("incarnateFiveEMod","addItemFlags") === false) return true;
 	const htmlDom = html[0];
-	const app = IncarnateReference.getClosestClass(htmlDom,"app");
+	const app = Reference.getClosestClass(htmlDom,"app");
 	if (app.getElementsByTagName("form")[0].classList.contains("locked")) return true;
 	const data = itemSheet.object.data;
 	if (data.flags === undefined)data.flags = {};
@@ -827,7 +827,7 @@ Hooks.on("renderActorSheet5eCharacter",(app,html,data)=>{
 	if (data.actor.flags.incarnateLog === undefined) return true;
 	console.log(data.actor.flags);
 	const htmlDom = html[0];
-	const appDom = IncarnateReference.getClosestClass(htmlDom,"app");
+	const appDom = Reference.getClosestClass(htmlDom,"app");
 	const contentNav = appDom.getElementsByClassName("sheet-tabs tabs content")[0];
 	contentNav.innerHTML += `<a class="item" data-tab="incarnateLog">Log</a>`;
 	const contentSection = appDom.getElementsByClassName("sheet-content content")[0];
@@ -915,9 +915,9 @@ class IncarnateRegionEntry extends FormApplication {
 				flags.incRegions = game.settings.get("incarnate","incRegions");
 				flags.incRegions.incStatRoll = game.settings.get("incarnate","incStatRoll");
 			}
-			IncarnateReference.sortAlphabeticallyName(flags.incRegions.backgrounds);
-			IncarnateReference.sortAlphabeticallyName(flags.incRegions.classes);
-			IncarnateReference.sortAlphabeticallyName(flags.incRegions.races);
+			Reference.sortAlphabeticallyName(flags.incRegions.backgrounds);
+			Reference.sortAlphabeticallyName(flags.incRegions.classes);
+			Reference.sortAlphabeticallyName(flags.incRegions.races);
 			regionFolder.update({flags:flags});
 		}
 		const data = {incRegions:flags.incRegions,folder:regionFolder};
@@ -948,41 +948,41 @@ class IncarnateRegionEntry extends FormApplication {
 		if (this.data.folder === undefined) return false;
 		//Add and delete buttons in npc stat roll section
 		let handlerAddLeast = async ev =>{
-			const regionId = IncarnateReference.getClosestClass(ev.srcElement,"app").getAttribute("id").split("-")[1];
+			const regionId = Reference.getClosestClass(ev.srcElement,"app").getAttribute("id").split("-")[1];
 			const folder = game.folders.get(regionId);
 			const flags = JSON.parse(JSON.stringify(folder.data.flags));
 			flags.incRegions.incStatRoll.guarantee.atLeast.push({value:0, quantity:0});
 			folder.update({flags:flags});
-			await IncarnateReference.incarnateDelay(50);
+			await Reference.incarnateDelay(50);
 			this.render(false);
 		}
 		let handlerDeleteLeast = async ev =>{
-			const leastId = IncarnateReference.getClosestClass(ev.srcElement,"atLeast-entry").getAttribute("data-id");
-			const regionId = IncarnateReference.getClosestClass(ev.srcElement,"app").getAttribute("id").split("-")[1];
+			const leastId = Reference.getClosestClass(ev.srcElement,"atLeast-entry").getAttribute("data-id");
+			const regionId = Reference.getClosestClass(ev.srcElement,"app").getAttribute("id").split("-")[1];
 			const folder = game.folders.get(regionId);
 			const flags = JSON.parse(JSON.stringify(folder.data.flags));
 			flags.incRegions.incStatRoll.guarantee.atLeast.splice(leastId,1);
 			folder.update({flags:flags});
-			await IncarnateReference.incarnateDelay(50);
+			await Reference.incarnateDelay(50);
 			this.render(false);
 		}
 		let handlerAddMost = async ev =>{
-			const regionId = IncarnateReference.getClosestClass(ev.srcElement,"app").getAttribute("id").split("-")[1];
+			const regionId = Reference.getClosestClass(ev.srcElement,"app").getAttribute("id").split("-")[1];
 			const folder = game.folders.get(regionId);
 			const flags = JSON.parse(JSON.stringify(folder.data.flags));
 			flags.incRegions.incStatRoll.guarantee.atMost.push({value:0, quantity:0});
 			folder.update({flags:flags});
-			await IncarnateReference.incarnateDelay(50);
+			await Reference.incarnateDelay(50);
 			this.render(false);
 		}
 		let handlerDeleteMost = async ev =>{
-			const mostId = IncarnateReference.getClosestClass(ev.srcElement,"atMost-entry").getAttribute("data-id");
-			const regionId = IncarnateReference.getClosestClass(ev.srcElement,"app").getAttribute("id").split("-")[1];
+			const mostId = Reference.getClosestClass(ev.srcElement,"atMost-entry").getAttribute("data-id");
+			const regionId = Reference.getClosestClass(ev.srcElement,"app").getAttribute("id").split("-")[1];
 			const folder = game.folders.get(regionId);
 			const flags = JSON.parse(JSON.stringify(folder.data.flags));
 			flags.incRegions.incStatRoll.guarantee.atMost.splice(mostId,1);
 			folder.update({flags:flags});
-			await IncarnateReference.incarnateDelay(50);
+			await Reference.incarnateDelay(50);
 			this.render(false);
 		}
 		let addLeast = htmlDom.getElementsByClassName("atLeast-create");
@@ -1004,12 +1004,12 @@ class IncarnateRegionEntry extends FormApplication {
 		//Functions from setup tab
 		var setupRegionHandler = ev => {
 			IncarnateRegion.setRegionDefault(this._id);
-			IncarnateReference.incarnateDelay(3000)
+			Reference.incarnateDelay(3000)
 			.then(result => this.render(false));
 		}
 		var clearRegionHandler = ev => {
 			IncarnateRegion.setRegionEmpty(this._id);
-			IncarnateReference.incarnateDelay(200)
+			Reference.incarnateDelay(200)
 			.then(result => this.render(false));
 		}
 		var addCompendiumHandler = ev =>{
@@ -1050,14 +1050,14 @@ class IncarnateRegionEntry extends FormApplication {
 					}
 				]
 			});
-			new IncarnateDialog({
+			new Dialog({
 				title: `Add Options from Compendium?`,
 				content: "<p> Which compendium do you wish to import from? What type of data does it contain?</p>",
 				buttons: {
 					addCompendium:{
 						label: "Add Compendium",
 						callback: ()=> {
-							const app = IncarnateReference.getClosestClass(event.srcElement,"app");
+							const app = Reference.getClosestClass(event.srcElement,"app");
 							const pack = app.getElementsByClassName("Compendium")[0].value;
 							const type = app.getElementsByClassName("Type")[0].value;
 							const target = {
@@ -1065,7 +1065,7 @@ class IncarnateRegionEntry extends FormApplication {
 								path: this.data.folder.data._id
 							}
 							IncarnateRegion.incarnateAddFromCompendium(target, type, pack);
-							IncarnateReference.incarnateDelay(1500)
+							Reference.incarnateDelay(1500)
 							.then(result => this.render(false));
 						}
 					}
@@ -1076,12 +1076,12 @@ class IncarnateRegionEntry extends FormApplication {
 		}
 		var mirrorWorldSettings = ev =>{
 			IncarnateRegion.setRegionToWorld(this._id);
-			IncarnateReference.incarnateDelay(200)
+			Reference.incarnateDelay(200)
 			.then(result => this.render(false));
 		}
 		var mirrorParentSettings = ev =>{
 			IncarnateRegion.setRegionToParent(this._id);
-			IncarnateReference.incarnateDelay(200)
+			Reference.incarnateDelay(200)
 			.then(result => this.render(false));
 		}
 		htmlDom.getElementsByClassName("setup-regions")[0].addEventListener("click",setupRegionHandler);
@@ -1120,9 +1120,9 @@ class IncarnateWorldDefaultsEntry extends IncarnateRegionEntry {
 	*/
 	getData() {
 		var incRegions = game.settings.get("incarnate","incRegions");
-		IncarnateReference.sortAlphabeticallyName(incRegions.backgrounds);
-		IncarnateReference.sortAlphabeticallyName(incRegions.classes);
-		IncarnateReference.sortAlphabeticallyName(incRegions.races);
+		Reference.sortAlphabeticallyName(incRegions.backgrounds);
+		Reference.sortAlphabeticallyName(incRegions.classes);
+		Reference.sortAlphabeticallyName(incRegions.races);
 		if (incRegions.incStatRoll === undefined) incRegions.incStatRoll = game.settings.get("incarnate","incStatRoll");
 		const data = {incRegions:incRegions};
 
@@ -1148,12 +1148,12 @@ class IncarnateWorldDefaultsEntry extends IncarnateRegionEntry {
 		const htmlDom = $(html)[0];
 		var setupRegionHandler = ev => {
 			IncarnateRegion.setDefaultDefault();
-			IncarnateReference.incarnateDelay(3000)
+			Reference.incarnateDelay(3000)
 			.then(result => this.render(false));
 		}
 		var clearRegionHandler = ev => {
 			IncarnateRegion.setDefaultEmpty();
-			IncarnateReference.incarnateDelay(200)
+			Reference.incarnateDelay(200)
 			.then(result => this.render(false));
 		}
 		var addCompendiumHandler = ev =>{
@@ -1194,14 +1194,14 @@ class IncarnateWorldDefaultsEntry extends IncarnateRegionEntry {
 					}
 				]
 			});
-			new IncarnateDialog({
+			new Dialog({
 				title: `Add Options from Compendium?`,
 				content: "<p> Which compendium do you wish to import from? What type of data does it contain?</p>",
 				buttons: {
 					addCompendium:{
 						label: "Add Compendium",
 						callback: ()=> {
-							const app = IncarnateReference.getClosestClass(event.srcElement,"app");
+							const app = Reference.getClosestClass(event.srcElement,"app");
 							const pack = app.getElementsByClassName("Compendium")[0].value;
 							const type = app.getElementsByClassName("Type")[0].value;
 							const target = {
@@ -1209,7 +1209,7 @@ class IncarnateWorldDefaultsEntry extends IncarnateRegionEntry {
 								path: "incarnate.incRegions"
 							}
 							IncarnateRegion.incarnateAddFromCompendium(target, type, pack);
-							IncarnateReference.incarnateDelay(1500)
+							Reference.incarnateDelay(1500)
 							.then(result => this.render(false));
 						}
 					}
@@ -1228,30 +1228,30 @@ class IncarnateWorldDefaultsEntry extends IncarnateRegionEntry {
 			const incRegions = game.settings.get("incarnate","incRegions");
 			incRegions.incStatRoll.guarantee.atLeast.push({value:0, quantity:0});
 			game.settings.set("incarnate","incRegions",incRegions);
-			await IncarnateReference.incarnateDelay(50);
+			await Reference.incarnateDelay(50);
 			this.render(false);
 		}
 		let handlerDeleteLeast = async ev =>{
-			const leastId = IncarnateReference.getClosestClass(ev.srcElement,"atLeast-entry").getAttribute("data-id");
+			const leastId = Reference.getClosestClass(ev.srcElement,"atLeast-entry").getAttribute("data-id");
 			const incRegions = game.settings.get("incarnate","incRegions");
 			incRegions.incStatRoll.guarantee.atLeast.splice(leastId,1);
 			game.settings.set("incarnate","incRegions",incRegions);
-			await IncarnateReference.incarnateDelay(50);
+			await Reference.incarnateDelay(50);
 			this.render(false);
 		}
 		let handlerAddMost = async ev =>{
 			const incRegions = game.settings.get("incarnate","incRegions");
 			incRegions.incStatRoll.guarantee.atMost.push({value:0, quantity:0});
 			game.settings.set("incarnate","incRegions",incRegions);
-			await IncarnateReference.incarnateDelay(50);
+			await Reference.incarnateDelay(50);
 			this.render(false);
 		}
 		let handlerDeleteMost = async ev =>{
-			const mostId = IncarnateReference.getClosestClass(ev.srcElement,"atMost-entry").getAttribute("data-id");
+			const mostId = Reference.getClosestClass(ev.srcElement,"atMost-entry").getAttribute("data-id");
 			const incRegions = game.settings.get("incarnate","incRegions");
 			incRegions.incStatRoll.guarantee.atMost.splice(mostId,1);
 			game.settings.set("incarnate","incRegions",incRegions);
-			await IncarnateReference.incarnateDelay(50);
+			await Reference.incarnateDelay(50);
 			this.render(false);
 		}
 		let addLeast = htmlDom.getElementsByClassName("atLeast-create");
@@ -1328,16 +1328,16 @@ async function npcGeneration(template, parentElement){
 	name = await IncarnateNpcGeneration.itemTable(raceItem,"raceName",gender,"Norm");
 	fathersName = await IncarnateNpcGeneration.itemTable(raceItem,"raceName","Male","Norm");
 	clanName = await IncarnateNpcGeneration.itemTable(raceItem,"raceNameClan","","");
-	name = IncarnateReference.sanitizeName(name);
-	fathersName = IncarnateReference.sanitizeName(fathersName);
+	name = Reference.sanitizeName(name);
+	fathersName = Reference.sanitizeName(fathersName);
 	name = gender === "Male" ? name + " son of " + fathersName : name + " daughter of " + fathersName;
 	if (clanName !== ""){
-		clanName = IncarnateReference.sanitizeName(clanName);
+		clanName = Reference.sanitizeName(clanName);
 		name = name + " of clan " + clanName;
 	}
 	token = await IncarnateNpcGeneration.itemTable(raceItem,"raceImage",gender,"icons/svg/mystery-man.svg");
 	if (token !== "icons/svg/mystery-man.svg"){
-		token = IncarnateReference.sanitizeName(token);
+		token = Reference.sanitizeName(token);
 		game.socket.emit("getFiles", token, {wildcard: true}, images => {
 			if (images.error) reject(images.error);
 			if (images.files.length > 0){
@@ -1358,7 +1358,7 @@ async function npcGeneration(template, parentElement){
 		items = await IncarnateAutoLevel.childLoop(items,classItem.flags.defaults.spells,level);
 	}
 	var itemCount = 3;
-	var statArray = settings.incStatRoll !== undefined ? IncarnateStatRoll.statRoll(settings.incStatRoll.dice, settings.incStatRoll.guarantee, settings.incStatRoll.rolls, settings.incStatRoll.abortCountTrigger) : IncarnateNpcGeneration.statArray();
+	var statArray = settings.incStatRoll !== undefined ? StatRoll.statRoll(settings.incStatRoll.dice, settings.incStatRoll.guarantee, settings.incStatRoll.rolls, settings.incStatRoll.abortCountTrigger) : IncarnateNpcGeneration.statArray();
 	var abilities = IncarnateNpcGeneration.abilityPrep(classItem,statArray,Math.floor(level/2));
 	raceItem.flags.raceBoosts.forEach(boost =>{
 		if (boost.ability !== "choice"){
@@ -1431,8 +1431,8 @@ class IncarnateNpcGeneration{
 	static async itemTable(item,tablePrefix,gender,backup){
 		if (item.flags.tables !== undefined){
 			if (item.flags.tables[tablePrefix+gender] !== undefined){
-				var result = await IncarnateReference.rollTable(item.flags.tables[tablePrefix+gender]);
-				result = await IncarnateReference.generation(result.outerHTML)
+				var result = await Reference.rollTable(item.flags.tables[tablePrefix+gender]);
+				result = await Reference.generation(result.outerHTML)
 				return result;
 			}else{
 				return backup;
@@ -1504,7 +1504,7 @@ class IncarnateNpcGeneration{
 	static statArray(){
 		var statArray = [];
 		for (var a=0; a<6; a++){
-			statArray.push(IncarnateReference.incarnateRoll("3d6"));
+			statArray.push(Reference.incarnateRoll("3d6"));
 		}
 		statArray.sort(function(a,b){return b-a});
 		rollCount += 18;
@@ -1560,14 +1560,14 @@ class IncarnateAutoLevel{
 				for (var c=0; c<calledPackLen; c++){
 					if (calledPacks[c].name === itemArray[a].flags.origin.pack){
 						packFound = true;
-						var originItem = await IncarnateReference.lookupItemComplete(itemArray[a].flags.origin._id,itemArray[a].flags.origin.pack,calledPacks[c].content);
+						var originItem = await Reference.lookupItemComplete(itemArray[a].flags.origin._id,itemArray[a].flags.origin.pack,calledPacks[c].content);
 					}
 				}
 				if (packFound === false){
-					const prePackContent = await IncarnateReference.incarnatePackFind(itemArray[a].flags.origin.pack);
+					const prePackContent = await Reference.incarnatePackFind(itemArray[a].flags.origin.pack);
 					const packContent = await prePackContent.getContent();
 					calledPacks.push({name:itemArray[a].flags.origin.pack,content:packContent});
-					var originItem = await IncarnateReference.lookupItemComplete(itemArray[a].flags.origin._id,itemArray[a].flags.origin.pack,packContent);
+					var originItem = await Reference.lookupItemComplete(itemArray[a].flags.origin._id,itemArray[a].flags.origin.pack,packContent);
 				}
 				originItem = originItem[0];
 				if (originItem !== false){
@@ -1654,7 +1654,7 @@ class IncarnateAutoLevel{
 		var origin="", newItem = {}, tempItem={}, foundPack,tempOrigin;
 		if (characterID !== undefined){
 			if (actorData === undefined){
-				tempOrigin = await IncarnateReference.lookupActorComplete(characterID,pack,packContent);
+				tempOrigin = await Reference.lookupActorComplete(characterID,pack,packContent);
 				tempOrigin = tempOrigin[0];
 			}else{
 				tempOrigin = actorData;
@@ -1678,7 +1678,7 @@ class IncarnateAutoLevel{
 				}
 			}
 		}else {
-			tempItem= await IncarnateReference.lookupItemComplete(itemID,pack,packContent);
+			tempItem= await Reference.lookupItemComplete(itemID,pack,packContent);
 			tempItem = tempItem[0];
 			if (tempItem === false){
 				console.log("Item: ",itemID," not found");
@@ -1732,7 +1732,7 @@ class IncarnateAutoLevel{
 						}
 					}
 					if (packFound === false){
-						const prePackContent = await IncarnateReference.incarnatePackFind(childArray[b].pack);
+						const prePackContent = await Reference.incarnatePackFind(childArray[b].pack);
 						const packContent = await prePackContent.getContent();
 						calledPacks.push({name:childArray[b].pack,content:packContent});
 						newItem = await IncarnateAutoLevel.incarnateFormatItem(childID,childArray[b].pack,itemID,undefined,undefined,nameSuffix,packContent)
@@ -2768,7 +2768,7 @@ class IncarnateSpellBrowser extends IncarnateCompendium {
 		return templateData;
 	}
 	async browserFilter(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const leftPane = app.getElementsByClassName("IncarnateLeftPane")[0];
 		var spells = app.getElementsByClassName("pack-content")[0].getElementsByTagName("li");
 		var spellLen = spells.length;
@@ -2826,7 +2826,7 @@ class IncarnateBackgroundBrowser extends IncarnateCompendium {
 		return templateData;
 	}
 	async browserFilter(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const leftPane = app.getElementsByClassName("BackgroundLeftPane")[0];
 		var background = app.getElementsByClassName("pack-content")[0].getElementsByTagName("li");
 		var backgroundLen = background.length;
@@ -2996,7 +2996,7 @@ class IncarnateBestiaryBrowser extends IncarnateCompendium {
 		}));
 	}
 	async browserFilter(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const leftPane = app.getElementsByClassName("bestiaryLeftPane")[0];
 		var beasts = app.getElementsByClassName("pack-content")[0].getElementsByTagName("li");
 		var beastLen = beasts.length;
@@ -3060,7 +3060,7 @@ class IncarnateClassBrowser extends IncarnateCompendium {
 		return templateData;
 	}
 	async browserFilter(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const leftPane = app.getElementsByClassName("incClassLeftPane")[0];
 		var incClass = app.getElementsByClassName("pack-content")[0].getElementsByTagName("li");
 		var incClassLen = incClass.length;
@@ -3111,7 +3111,7 @@ class IncarnateEquipmentBrowser extends IncarnateCompendium {
 		return templateData;
 	}
 	async browserFilter(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const leftPane = document.getElementsByClassName("equipmentLeftPane")[0];
 		var equipment = app.getElementsByClassName("pack-content")[0].getElementsByTagName("li");
 		var equipmentLen = equipment.length;
@@ -3171,7 +3171,7 @@ class IncarnateRacesBrowser extends IncarnateCompendium {
 		return templateData;
 	}
 	async browserFilter(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const leftPane = app.getElementsByClassName("incRaceLeftPane")[0];
 		var incRace = app.getElementsByClassName("pack-content")[0].getElementsByTagName("li");
 		var incRaceLen = incRace.length;
@@ -3333,14 +3333,14 @@ class IncarnateItemParcelSheet extends ActorSheet {
 		// Try to extract the data
 		let data;
 		const preData = event.dataTransfer.getData("text/plain");
-		const preDataCheck = await IncarnateReference.incarnateJSONcheck(preData);
+		const preDataCheck = await Reference.incarnateJSONcheck(preData);
 		if (preDataCheck === true){
 			data = JSON.parse(preData);
 		}else{
 			return false;
 		}
 		if (data.type ==="itemPack"){
-			var itemParcel = await IncarnateReference.lookupActorComplete(data.id,data.pack);
+			var itemParcel = await Reference.lookupActorComplete(data.id,data.pack);
 			itemParcel = itemParcel[0];
 			if (itemParcel === false){
 				console.log("Actor: ",data.id," not found");
@@ -3386,7 +3386,7 @@ class IncarnateItemParcelSheet extends ActorSheet {
 							}
 						});
 						if (actorFound === false){
-							var newActor = await IncarnateReference.lookupActorComplete(data[a].actorId,data[a].pack);
+							var newActor = await Reference.lookupActorComplete(data[a].actorId,data[a].pack);
 							calledActors.push({id:data[a].actorId,data:newActor});
 							newItem = await IncarnateAutoLevel.incarnateFormatItem(data[a].id,data[a].pack,itemId,undefined,data[a].actorId,undefined,newActor);
 						}
@@ -3405,7 +3405,7 @@ class IncarnateItemParcelSheet extends ActorSheet {
 							}
 						}
 						if (packFound === false){
-							const prePackContent = await IncarnateReference.incarnatePackFind(data[a].pack);
+							const prePackContent = await Reference.incarnatePackFind(data[a].pack);
 							const packContent = await prePackContent.getContent();
 							calledPacks.push({name:data[a].pack,content:packContent});
 							var newItem = await IncarnateAutoLevel.incarnateFormatItem(data[a].id,data[a].pack,itemId,undefined,undefined,undefined,packContent)
@@ -3793,7 +3793,7 @@ class IncarnateLootDistributionSheet extends IncarnateItemParcelSheet {
 						distName:distSheet.name,
 						gv:totalValue,
 						date:Date.now(),
-						incarnateDate:IncarnateCalendar.incarnateDate(),
+						incarnateDate:Calendar.incarnateDate(),
 						gmId:game.user.data._id,
 						gmName:game.user.data.name,
 						newItems:newItems,
@@ -3939,20 +3939,20 @@ class IncarnateLootDistributionSheet extends IncarnateItemParcelSheet {
 	}
 	/* -------------------------------------------- */
 	static async createLootParcel(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const startingXp = Number(app.getElementsByClassName("incarnateBonusXp")[0].value);
 		app.remove();
-		var lootParcel = await Actor5e.create({name:"Loot Sheet - " + game.user.data.name + " - " + IncarnateCalendar.incarnateDate(), type: "character"}, {"displaySheet": false});
+		var lootParcel = await Actor5e.create({name:"Loot Sheet - " + game.user.data.name + " - " + Calendar.incarnateDate(), type: "character"}, {"displaySheet": false});
 		const combatDetails = IncarnateLootDistributionSheet.getCombatDetails(startingXp);
 		lootParcel.update({flags:combatDetails.flags,items:combatDetails.items,data:{currency:combatDetails.currency},permission:{default:2}});
 		const postResolve = new Promise (async (resolve,reject)=>{
-			await IncarnateReference.incarnateDelay(200);
+			await Reference.incarnateDelay(200);
 			if (game.settings.get("incarnateFiveEMod","renderLootParcel")) lootParcel.sheet.render(true);
 		});
 		postResolve;
 	}
 	static quickXp (ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const startingXp = Number(app.getElementsByClassName("incarnateBonusXp")[0].value);
 		app.remove();
 		const combatDetails = IncarnateLootDistributionSheet.getCombatDetails(startingXp);
@@ -3967,7 +3967,7 @@ class IncarnateLootDistributionSheet extends IncarnateItemParcelSheet {
 					distName:"Quick Xp",
 					gv:0,
 					date:Date.now(),
-					incarnateDate:IncarnateCalendar.incarnateDate(),
+					incarnateDate:Calendar.incarnateDate(),
 					gmId:game.user.data._id,
 					gmName:game.user.data.name,
 					newItems:[],
@@ -4141,7 +4141,7 @@ class IncarnateActorSheet extends ActorSheet {
 		// Try to extract the data
 		let data;
 		const preData = event.dataTransfer.getData("text/plain");
-		const preDataCheck = await IncarnateReference.incarnateJSONcheck(preData);
+		const preDataCheck = await Reference.incarnateJSONcheck(preData);
 		if (preDataCheck === true){
 			data = JSON.parse(preData);
 		}else{
@@ -4394,7 +4394,7 @@ class IncarnateFiveEMessages{
 	}
 }
 function incarnatePlayerQuickSheet(){
-	IncarnateReference.crossReference("HlyV9728fyQUUdDx","JournalEntry","incarnateRules");
+	Reference.crossReference("HlyV9728fyQUUdDx","JournalEntry","incarnateRules");
 }
 class IncarnateRandomEncounter{
 	static async incarnateSetupDefaults(){
@@ -4450,7 +4450,7 @@ class IncarnateRandomEncounter{
 	static resetDefaultEncounters(){
 		console.log("Creating Random Encounters array");
 		game.settings.set("incarnateFiveEMod","randomEncounters",[]);
-		IncarnateReference.incarnateDelay(300).then(result =>{
+		Reference.incarnateDelay(300).then(result =>{
 			if (ui._gmblind !== undefined){
 				ui._gmblind.render(false);
 			}
@@ -4580,7 +4580,7 @@ class IncarnateRandomEncounter{
 		return randomTab;
 	}
 	static encounterSettingsDisplay(ev){
-		const encDiv = IncarnateReference.getClosestClass(ev.srcElement,"encounter");
+		const encDiv = Reference.getClosestClass(ev.srcElement,"encounter");
 		var stat = encDiv.getAttribute("data-status");
 		if (stat === "heading"){
 			encDiv.setAttribute("data-status","settings");
@@ -4591,7 +4591,7 @@ class IncarnateRandomEncounter{
 		}
 	}
 	static encounterSettingTrash(ev){
-		const encounter = IncarnateReference.getClosestClass(ev.srcElement,"encounter");
+		const encounter = Reference.getClosestClass(ev.srcElement,"encounter");
 		if (encounter.getAttribute("trashprimed") === null){
 			encounter.setAttribute("trashprimed","true");
 		}else{
@@ -4606,17 +4606,17 @@ class IncarnateRandomEncounter{
 	static encounterSettingUpdate(ev){
 		const element = ev.srcElement;
 		const settings = game.settings.get("incarnateFiveEMod","randomEncounters");
-		const encounterNode = IncarnateReference.getClosestClass(element,"encounter");
+		const encounterNode = Reference.getClosestClass(element,"encounter");
 		const id = Number(encounterNode.getAttribute("data-id"));
 		const name = element.getAttribute("name");
-		const value = IncarnateReference.getInputValue(element);
+		const value = Reference.getInputValue(element);
 		const setting = settings.findIndex(setting => setting.id === id);
 		setProperty(settings[setting],name,value);
 		game.settings.set("incarnateFiveEMod","randomEncounters",settings);
 		return settings;
 	}
 	static rollEncounters(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const settings = game.settings.get("incarnateFiveEMod","randomEncounters");
 		const result = IncarnateRandomEncounterRoll.roll(settings,Number(app.getElementsByClassName("rollCount")[0].value));
 		console.log(result);
@@ -4646,12 +4646,12 @@ class IncarnateRandomEncounter{
 		});
 	}
 	static clearEncounters(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const rolledEncounters = app.getElementsByClassName("rolledEncounters")[0];
 		rolledEncounters.innerHTML="";
 	}
 	static encounterDragStart(ev){
-		const encounter = IncarnateReference.getClosestClass(ev.srcElement,"generatedEncounter");
+		const encounter = Reference.getClosestClass(ev.srcElement,"generatedEncounter");
 		ev.dataTransfer.setData("text/plain",encounter.getAttribute("data-encounter"));
 	}
 }
@@ -4804,7 +4804,7 @@ class IncarnateRandomEncounterConfig extends Application{
 			select.addEventListener("click",IncarnateRandomEncounterConfig.matchCheck);
 		});
 		const postRender = new Promise(async(resolve,reject)=>{
-			await IncarnateReference.incarnateDelay(200);
+			await Reference.incarnateDelay(200);
 			IncarnateRandomEncounterConfig.matchCheck({srcElement:htmlDom});
 		});
 		postRender;
@@ -4826,7 +4826,7 @@ class IncarnateRandomEncounterConfig extends Application{
 			id = encounter.id > id ? encounter.id : id;
 		});
 		id++;
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const newBeasts = IncarnateRandomEncounterConfig.getNewBeasts(app);
 		var encounterName = app.getElementsByClassName("encounterName")[0].value;
 		if (encounterName === ""){
@@ -4839,14 +4839,14 @@ class IncarnateRandomEncounterConfig extends Application{
 			weight = Number(app.getElementsByClassName("encounterWeight")[0].value);
 		settings.push({id:id,name:encounterName,minXP:minXP,maxXP:maxXP,minNpc:minNpc,maxNpc:maxNpc,weight:weight,beasts:newBeasts});
 		game.settings.set("incarnateFiveEMod","randomEncounters",settings);
-		IncarnateReference.incarnateDelay(300).then(result =>{
+		Reference.incarnateDelay(300).then(result =>{
 			if (ui._gmblind !== undefined){
 				ui._gmblind.render(false);
 			}
 		});
 	}
 	static matchCheck(ev){
-		const app = IncarnateReference.getClosestClass(ev.srcElement,"app");
+		const app = Reference.getClosestClass(ev.srcElement,"app");
 		const newBeasts = IncarnateRandomEncounterConfig.getNewBeasts(app);
 		IncarnateRandomEncounterConfig.addBeastLog(app,newBeasts);
 	}
@@ -5388,7 +5388,7 @@ class IncarnateItemClass{
 		return x;
 	};
 	static hideAc(ev){
-		const armorClass = IncarnateReference.getClosestClass(ev.srcElement,"armorClass");
+		const armorClass = Reference.getClosestClass(ev.srcElement,"armorClass");
 		console.log(ev,armorClass)
 		armorClass.classList.toggle("active");
 	}
@@ -5399,7 +5399,7 @@ class IncarnateItemClass{
 		IncarnateItemClass.acAddAbility(ev,"formula");
 	}
 	static acAddAbility(ev,type){
-		const incarnateFlags = IncarnateReference.getClosestClass(ev.srcElement,"item-incarnate-flags");
+		const incarnateFlags = Reference.getClosestClass(ev.srcElement,"item-incarnate-flags");
 		var id = incarnateFlags.getAttribute("data-id");
 		const actorId = incarnateFlags.getAttribute("data-actor");
 		if (actorId !== null){
@@ -5430,9 +5430,9 @@ class IncarnateItemClass{
 		IncarnateItemClass.acAbilityDelete(ev,"Boost");
 	}
 	static acAbilityDelete(ev,cLass){
-		const abilityNode = IncarnateReference.getClosestClass(ev.srcElement,"acAbility");
+		const abilityNode = Reference.getClosestClass(ev.srcElement,"acAbility");
 		const index = Number(abilityNode.getAttribute("data-index"));
-		const incarnateFlags = IncarnateReference.getClosestClass(ev.srcElement,"item-incarnate-flags");
+		const incarnateFlags = Reference.getClosestClass(ev.srcElement,"item-incarnate-flags");
 		var id = incarnateFlags.getAttribute("data-id");
 		const actorId = incarnateFlags.getAttribute("data-actor");
 		const type = cLass.toLowerCase();
@@ -5570,7 +5570,7 @@ class IncarnateFiveEModSettings{
 }
 class IncarnateCharacterSheetMods{
 	static showItems(ev){
-		const logEntry = IncarnateReference.getClosestClass(ev.srcElement,"incarnate-log");
+		const logEntry = Reference.getClosestClass(ev.srcElement,"incarnate-log");
 		if (logEntry.getAttribute("data-items-hidden") === null){
 			logEntry.setAttribute("data-items-hidden","");
 		}else{
@@ -5578,7 +5578,7 @@ class IncarnateCharacterSheetMods{
 		}
 	}
 	static showDescription(ev){
-		const logEntry = IncarnateReference.getClosestClass(ev.srcElement,"incarnate-log");
+		const logEntry = Reference.getClosestClass(ev.srcElement,"incarnate-log");
 		if (logEntry.getAttribute("data-desc-hidden") === null){
 			logEntry.setAttribute("data-desc-hidden","");
 		}else{
@@ -5586,7 +5586,7 @@ class IncarnateCharacterSheetMods{
 		}
 	}
 	static showGranter(ev){
-		const logEntry = IncarnateReference.getClosestClass(ev.srcElement,"incarnate-log");
+		const logEntry = Reference.getClosestClass(ev.srcElement,"incarnate-log");
 		if (logEntry.getAttribute("data-granter-hidden") === null){
 			logEntry.setAttribute("data-granter-hidden","");
 		}else{
@@ -5658,7 +5658,7 @@ class IncarnateCharacterSheetMods{
 			totalXp += Number(entry.xp) > 0 ? Number(entry.xp) : 0;
 			totalGv += Number(entry.gv) > 0 ? Number(entry.gv) : 0;
 			const target = "flags.incarnateLog." + entryIndex + ".notes";
-			const editor = IncarnateReference.mce(data,entry.notes,target);
+			const editor = Reference.mce(data,entry.notes,target);
 			const newLogItems = IncarnateCharacterSheetMods.newLogItems(entry.newItems);
 			const newLogEntry = IncarnateCharacterSheetMods.newLogEntry(entry,newLogItems,editor);
 			logEntries.prepend(newLogEntry);
@@ -5669,7 +5669,7 @@ class IncarnateCharacterSheetMods{
 		if (data.actor.flags["_sheetTab-primary"] !== undefined && data.actor.flags["_sheetTab-primary"] === "incarnateLog"){
 			htmlDom.getElementsByClassName("incarnateLog")[0].classList.add("active");
 			htmlDom.getElementsByClassName("inventory")[0].classList.remove("active");
-			const appDom = IncarnateReference.getClosestClass(htmlDom,"app");
+			const appDom = Reference.getClosestClass(htmlDom,"app");
 			const contentNav = appDom.getElementsByClassName("sheet-tabs tabs content")[0];
 			contentNav.getElementsByClassName("active")[0].classList.remove("active");
 			const aNodes = contentNav.getElementsByClassName("item");
@@ -5716,7 +5716,7 @@ class IncarnateRegion{
 				incRegions = JSON.parse(JSON.stringify(targetFolder.data.flags.incRegions));
 			}
 		}
-		const rawData = await IncarnateReference.incarnatePackFind(pack).getContent()
+		const rawData = await Reference.incarnatePackFind(pack).getContent()
 		const filteredData = rawData.filter(entry => entry.data.type === "class" && entry.data.data.subclass.value === "");
 		if (type === "backgrounds"){
 			filteredData.forEach(entry => {
@@ -5821,7 +5821,7 @@ class IncarnateRegion{
 		var tempRegions = {
 			backgrounds:[],
 			classes:[],
-			incStatRoll:IncarnateStatRoll.incarnateStatRollDefaultArray(),
+			incStatRoll:StatRoll.incarnateStatRollDefaultArray(),
 			races:[],
 			resources:[],
 			terrain:[],
@@ -5856,11 +5856,11 @@ Hooks.on('ready', () =>  {
 	if (typeof SpellBrowser !== "undefined" && typeof SpellBrowser.registerCustomFilter !== "undefined"){
 		console.log("running spell browser add on");
 		SpellBrowser.registerCustomFilter("flags.class","Class",["Bard","Cleric","Druid","Megalutero","Paladin","Ranger","Rune Blade","Runecrafter","Sorcerer","Warlock","Wizard"]);
-		IncarnateReference.incarnateDelay(1000);
+		Reference.incarnateDelay(1000);
 		SpellBrowser.registerCustomFilter("flags.components","Components",["v","s","m"]);
-		IncarnateReference.incarnateDelay(1000);
+		Reference.incarnateDelay(1000);
 		SpellBrowser.registerCustomFilter("flags.official","Official",["true","false","mechanically modified","description added","heavily edited"]);
-		IncarnateReference.incarnateDelay(1000);
+		Reference.incarnateDelay(1000);
 		SpellBrowser.registerCustomFilter("data.duration.value","Duration",["Instantaneous","1 round","1 minute","Up to 1 minute","5 minutes","10 minutes","15 minutes","30 minutes","1 hour","Up to 1 hour","2 hours","3 hours","8 hours","Up to 8 hours","24 hours","1 day","3 days","7 days","10 days","30 days","1 year","Permanent","Special","Until dispelled","Until dispelled or triggered",]);
 	}
 });
